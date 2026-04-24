@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 
 import { getAllBlogs } from "@/lib/blogs";
 
-const BASE_URL = "https://shreyas.cloud";
+const BASE_URL = "https://www.shreyas.cloud";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   /* ── Static pages ── */
