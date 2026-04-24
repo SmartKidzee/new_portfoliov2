@@ -1,0 +1,170 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-04-22",
+  "projectCount": 3,
+  "projects": [
+    {
+      "id": "talk2job",
+      "slug": "talk2job",
+      "name": "Talk2Job",
+      "tagline": "AI-powered voice interview practice",
+      "summary": "A voice-first interview simulator that gives instant AI feedback to help users practice, improve clarity, and build confidence.",
+      "description": "Talk2Job is a personal web application for interview preparation through spoken practice sessions. It uses an AI-assisted workflow to listen, respond, and coach in real time so users can rehearse answers more naturally.",
+      "status": "Launched",
+      "featured": true,
+      "projectType": "personal",
+      "category": "ai-web-app",
+      "platform": "web",
+      "stack": {
+        "primary": [
+          "Next.js",
+          "VAPI",
+          "Firebase",
+          "Google Gemini"
+        ],
+        "supporting": [
+          "Tailwind CSS",
+          "Vercel"
+        ]
+      },
+      "highlights": [
+        "Voice-based interview practice sessions",
+        "Real-time AI responses and coaching",
+        "Confidence-focused speaking feedback"
+      ],
+      "links": {
+        "live": "https://talk2job.vercel.app",
+        "repository": "https://github.com/SmartKidzee/talk2job"
+      },
+      "media": {
+        "coverImage": "https://ebxdddejgcqfxcjfgokn.supabase.co/storage/v1/object/public/site-images/Screenshot%202026-04-22%20163108.png",
+        "screenshots": [
+          {
+            "label": "Talk2Job live preview",
+            "src": "https://ebxdddejgcqfxcjfgokn.supabase.co/storage/v1/object/public/site-images/Screenshot%202026-04-22%20163108.png"
+          }
+        ]
+      },
+      "sourceFiles": [
+        "content-data/projects.json"
+      ]
+    },
+    {
+      "id": "personal-portfolio-website",
+      "slug": "personal-portfolio-website",
+      "name": "Personal Portfolio Website",
+      "tagline": "Portfolio, blogs, and immersive web storytelling",
+      "summary": "A modern responsive portfolio that blends project showcases, blogs, interaction design, and performance-focused frontend work.",
+      "description": "This portfolio evolved from a static site into a richer Next.js experience with dynamic blog content, cinematic transitions, responsive layouts, SEO work, and polished interaction details across the full experience.",
+      "status": "Active",
+      "featured": true,
+      "projectType": "personal",
+      "category": "portfolio-platform",
+      "platform": "web",
+      "stack": {
+        "previous": [
+          "HTML",
+          "CSS"
+        ],
+        "primary": [
+          "Next.js",
+          "React",
+          "TypeScript",
+          "Tailwind CSS",
+          "Framer Motion"
+        ],
+        "supporting": [
+          "GSAP",
+          "Supabase",
+          "Formspree",
+          "Vercel"
+        ]
+      },
+      "highlights": [
+        "Dynamic blog system with dedicated post pages",
+        "SEO-focused metadata and structured data",
+        "Interactive UI with motion, depth, and cinematic layout work",
+        "Responsive design tuned for mobile and desktop"
+      ],
+      "features": [
+        "Modern UI and UX",
+        "Responsive design",
+        "Performance optimization",
+        "Dynamic blog system",
+        "SEO optimization",
+        "Animations and interactive effects",
+        "Project showcase",
+        "Contact form",
+        "Social sharing"
+      ],
+      "roadmap": [
+        "Real-time comments for blog posts",
+        "More interactive UI experiments",
+        "Deeper animation studies",
+        "Expanded writing and case studies"
+      ],
+      "links": {
+        "live": "https://shreyas.cloud",
+        "repository": "https://github.com/SmartKidzee/new_portfolio"
+      },
+      "media": {
+        "coverImage": "https://ebxdddejgcqfxcjfgokn.supabase.co/storage/v1/object/public/site-images/Screenshot%202026-04-22%20165112.png",
+        "screenshots": [
+          {
+            "label": "Portfolio homepage",
+            "src": "https://ebxdddejgcqfxcjfgokn.supabase.co/storage/v1/object/public/site-images/Screenshot%202026-04-22%20165112.png"
+          }
+        ]
+      },
+      "sourceFiles": [
+        "content-data/projects.json"
+      ]
+    },
+    {
+      "id": "niesync",
+      "slug": "niesync",
+      "name": "NIESync",
+      "tagline": "Campus operations portal for lost items and parking workflows",
+      "summary": "An actively evolving campus portal that helps NIE students report violations, manage lost-and-found activity, and resolve issues in real time.",
+      "description": "NIESync is a campus-focused product that streamlines parking reports, lost-item recovery, secure verification, and student coordination into one premium portal experience. The live product emphasizes automation, fast resolution, and gamified participation.",
+      "status": "Building Now",
+      "featured": true,
+      "projectType": "team",
+      "category": "campus-platform",
+      "platform": "web",
+      "stack": {
+        "primary": [
+          "Campus Ops",
+          "Lost & Found",
+          "Parking Patrol",
+          "Leaderboards"
+        ],
+        "supporting": [
+          "Realtime Alerts",
+          "Secure Verification"
+        ]
+      },
+      "highlights": [
+        "Parking violation reporting for campus operations",
+        "Lost-and-found recovery workflow with verification",
+        "Realtime alerts and a gamified participation layer"
+      ],
+      "links": {
+        "live": "https://niesync.vercel.app",
+        "repository": "https://github.com/labmannie/NIESync"
+      },
+      "media": {
+        "coverImage": "https://ebxdddejgcqfxcjfgokn.supabase.co/storage/v1/object/public/site-images/Screenshot%202026-04-22%20165916.png",
+        "screenshots": [
+          {
+            "label": "NIESync live preview",
+            "src": "https://ebxdddejgcqfxcjfgokn.supabase.co/storage/v1/object/public/site-images/Screenshot%202026-04-22%20165916.png"
+          }
+        ]
+      },
+      "sourceFiles": [
+        "content-data/projects.json"
+      ]
+    }
+  ]
+}

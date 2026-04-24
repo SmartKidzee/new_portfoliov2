@@ -1,0 +1,72 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-04-23",
+  "sectionId": "timeline",
+  "sectionName": "Timeline",
+  "routeScope": [
+    "/"
+  ],
+  "content": {
+    "title": "Timeline",
+    "heading": "Learning Timeline",
+    "description": "A year-by-year view of how curiosity turned into deliberate building, product thinking, and systems-focused execution.",
+    "entries": [
+      {
+        "year": "2019",
+        "phase": "Curiosity Phase",
+        "belief": "Tech is just cool stuff",
+        "learned": "No direction",
+        "change": "Started exploring computers seriously"
+      },
+      {
+        "year": "2020",
+        "phase": "Consumption Mode",
+        "belief": "Watching tutorials = learning",
+        "learned": "Passive learning does not equal skill",
+        "change": "Wanted to build something real"
+      },
+      {
+        "year": "2021",
+        "phase": "First Attempts",
+        "belief": "Coding is hard / not for me",
+        "learned": "Struggle is normal",
+        "change": "Started writing small code"
+      },
+      {
+        "year": "2022",
+        "phase": "Identity Formation",
+        "belief": "I should just follow syllabus",
+        "learned": "Real growth is outside college",
+        "change": "Started thinking independently"
+      },
+      {
+        "year": "2023",
+        "phase": "Direction Found",
+        "belief": "I need to pick one path",
+        "learned": "AI/ML is the future and aligned with me",
+        "change": "Focus shifted to problem-solving"
+      },
+      {
+        "year": "2024",
+        "phase": "Execution Mode",
+        "belief": "I need to learn everything first",
+        "learned": "Build, learn, repeat",
+        "change": "Started real projects like Talk2Job"
+      },
+      {
+        "year": "2025",
+        "phase": "Builder Mindset",
+        "belief": "Projects = portfolio",
+        "learned": "Projects are proof of thinking",
+        "change": "Started building with intent and UX focus"
+      },
+      {
+        "year": "2026",
+        "phase": "Systems Thinking",
+        "belief": "Code = product",
+        "learned": "Product = UX + psychology + system",
+        "change": "Building premium experiences"
+      }
+    ]
+  }
+}

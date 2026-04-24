@@ -1,0 +1,99 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-04-20",
+  "sectionId": "contact",
+  "sectionName": "Contact",
+  "routeScope": [
+    "/"
+  ],
+  "audit": {
+    "overallStatus": "needs-attention",
+    "checks": {
+      "content": "passed",
+      "layout": "passed",
+      "responsiveness": "passed",
+      "accessibility": "passed",
+      "dataIntegrity": "needs-attention"
+    },
+    "notes": [
+      "Form fields are labeled, required, and visibly reflect loading and success states.",
+      "Social links are clearly labeled for assistive technologies via aria-label attributes."
+    ],
+    "issues": [
+      {
+        "severity": "medium",
+        "code": "ignored-form-prop",
+        "summary": "The `ContactForm` component accepts a `formId` prop, but submission still posts to a hardcoded Formspree endpoint instead of using that prop as the source of truth.",
+        "sourceFiles": [
+          "src/App.tsx",
+          "src/cpmponents/ContactForm/ContactForm.tsx"
+        ]
+      },
+      {
+        "severity": "low",
+        "code": "client-email-provider-config",
+        "summary": "EmailJS service, template, and public key identifiers are embedded in client-side code; this works, but configuration drift must be managed carefully.",
+        "sourceFiles": [
+          "src/cpmponents/ContactForm/ContactForm.tsx"
+        ]
+      }
+    ]
+  },
+  "content": {
+    "title": "Get in Touch",
+    "description": "Have a question or want to work together? Send me a message.",
+    "form": {
+      "provider": "Internal API",
+      "formId": "contact-form",
+      "endpoint": "/api/contact",
+      "confirmationEmailProvider": "Nodemailer SMTP",
+      "fields": [
+        {
+          "name": "name",
+          "label": "Name",
+          "type": "text",
+          "required": true,
+          "placeholder": "Your name"
+        },
+        {
+          "name": "email",
+          "label": "Email",
+          "type": "email",
+          "required": true,
+          "placeholder": "your.email@example.com"
+        },
+        {
+          "name": "message",
+          "label": "Message",
+          "type": "textarea",
+          "required": true,
+          "placeholder": "Your message here...",
+          "rows": 5
+        }
+      ],
+      "successMessage": "Message sent successfully. Check your inbox for a confirmation email."
+    },
+    "socialLinks": [
+      {
+        "label": "GitHub",
+        "url": "https://github.com/SmartKidzee"
+      },
+      {
+        "label": "YouTube",
+        "url": "https://youtube.com/SmartKidzee"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/smartshreyas/"
+      },
+      {
+        "label": "X (Twitter)",
+        "url": "https://x.com/KidzeeSmart"
+      }
+    ]
+  },
+  "sourceFiles": [
+    "src/App.tsx",
+    "src/cpmponents/ContactForm/ContactForm.tsx"
+  ]
+}

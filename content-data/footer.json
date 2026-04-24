@@ -1,0 +1,44 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-04-22",
+  "sectionId": "footer",
+  "sectionName": "Footer",
+  "routeScope": [
+    "/",
+    "/blogs",
+    "/blogs/:id",
+    "/privacy",
+    "/terms"
+  ],
+  "audit": {
+    "overallStatus": "passed",
+    "checks": {
+      "content": "passed",
+      "layout": "passed",
+      "responsiveness": "passed",
+      "accessibility": "passed",
+      "dataIntegrity": "passed"
+    },
+    "notes": [
+      "Footer includes legal navigation links for terms and privacy.",
+      "Simple text-only structure keeps the footer robust across screen sizes."
+    ],
+    "issues": []
+  },
+  "content": {
+    "copyright": "\u00a9 2026 Shreyas J. All rights reserved.",
+    "links": [
+      {
+        "label": "Terms & Conditions",
+        "href": "/terms"
+      },
+      {
+        "label": "Privacy Policy",
+        "href": "/privacy"
+      }
+    ]
+  },
+  "sourceFiles": [
+    "src/App.tsx"
+  ]
+}

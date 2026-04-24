@@ -1,0 +1,298 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-04-20",
+  "sectionId": "blogs",
+  "sectionName": "Blogs",
+  "routeScope": [
+    "/",
+    "/blogs",
+    "/blogs/:id"
+  ],
+  "audit": {
+    "overallStatus": "passed-with-notes",
+    "checks": {
+      "content": "passed",
+      "layout": "passed",
+      "responsiveness": "passed",
+      "accessibility": "passed-with-notes",
+      "dataIntegrity": "passed-with-notes"
+    },
+    "notes": [
+      "Homepage blog section uses keyboard-focusable links and button controls with accessible labels.",
+      "Dedicated blog pages build and render successfully, including video and share actions.",
+      "Blog data contains a mix of markdown, inline HTML, and JSX-like fragments stored as strings, so consumers need a compatible renderer."
+    ],
+    "issues": [
+      {
+        "severity": "medium",
+        "code": "mixed-rich-text-formats",
+        "summary": "Blog post content mixes markdown with embedded HTML and JSX-like strings such as <BlogTable />, increasing rendering complexity and parser fragility.",
+        "sourceFiles": [
+          "src/data/blogs.ts",
+          "src/pages/blogs/BlogPage.tsx"
+        ]
+      },
+      {
+        "severity": "low",
+        "code": "stale-blog-type-file",
+        "summary": "`src/types/Blog.ts` no longer reflects the active blog schema and currently contains an empty interface.",
+        "sourceFiles": [
+          "src/types/Blog.ts",
+          "src/data/blogs.ts"
+        ]
+      }
+    ]
+  },
+  "content": {
+    "sectionHeader": {
+      "title": "Blogs",
+      "latestTitle": "Latest Articles",
+      "latestDescription": "Check out my most recent thoughts, achievements, and projects",
+      "seeAllPath": "/blogs"
+    },
+    "latestPostIds": [
+      "9",
+      "8",
+      "7"
+    ],
+    "categories": [
+      "Academic Achievement",
+      "Education",
+      "Gaming",
+      "Tech"
+    ],
+    "tags": [
+      "2025 data breach",
+      "Academics",
+      "account takeover",
+      "AI",
+      "Apple security",
+      "College",
+      "Computer Science",
+      "credential stuffing",
+      "cybersecurity",
+      "dark web",
+      "data breach",
+      "Data Structures",
+      "Development",
+      "Education",
+      "Engineering",
+      "Ethics",
+      "Facebook security",
+      "Firebase",
+      "Future Tech",
+      "Gaming",
+      "Google security",
+      "GPT-4o",
+      "identity theft",
+      "Image Generation",
+      "infostealer malware",
+      "Learning",
+      "multi-factor authentication",
+      "Next.js",
+      "NIE Mysuru",
+      "online security",
+      "Operating Systems",
+      "passkeys",
+      "password leak",
+      "password manager",
+      "phishing attacks",
+      "PlayStation",
+      "Portfolio",
+      "Programming",
+      "Projects",
+      "React",
+      "Results",
+      "Semester 2",
+      "Semester 3",
+      "Skills",
+      "Software Development",
+      "Studio Ghibli",
+      "Tailwind",
+      "Tech",
+      "TypeScript",
+      "UI/UX",
+      "Vibe Coding",
+      "Vite"
+    ],
+    "posts": [
+      {
+        "id": "9",
+        "category": "Education",
+        "title": "Semester 3 Results — 9.33 SGPA & Growing Stronger",
+        "content": "Another semester wraps up, and with it, Semester 3 at **The National Institute of Engineering, Mysuru** comes to a close.\n\nThe results are in: **9.33 SGPA** with all 21 credits earned. Not perfect — but real. And honestly? This semester taught me more outside the exam hall than inside it.\n\n**📊 Semester 3 — The Subjects**\n\nThis was the semester where things got *serious* in Computer Science. Here's what I tackled:\n\n- **Mathematics for Computer Science** — A+ grade. The mathematical foundations behind algorithms and computation finally started clicking.\n- **Digital Design and Computer Organization** — O grade. Understanding how hardware and software talk to each other at the lowest level was fascinating.\n- **Operating Systems** — A+ grade. Processes, threads, scheduling, memory management — the backbone of every system we use daily.\n- **Data Structures and Applications** — A+ grade. Trees, graphs, heaps, hashing — this is where real problem solving lives.\n- **Object Oriented Programming with Java** — A+ grade. Solidified my understanding of OOP beyond just syntax.\n- **Data Visualization using Python** — O grade. Turning raw data into meaningful visuals — a skill I'll carry everywhere.\n- **Data Structures Laboratory** — O grade. Hands-on implementation of everything we learned in theory. Nothing beats building it yourself.\n- **Physical Education** — PP grade. Yes, even engineers need to move.\n- **Social Connect and Responsibility** — O grade. A reminder that tech exists to serve people, not the other way around.\n\n**Final SGPA: 9.33**\n\n**🚀 Beyond the Classroom**\n\nWhat truly defined Semester 3 wasn't grades — it was growth:\n\n- Continued building and shipping real projects, pushing my portfolio further.\n- Dove deeper into **Agentic AI**, exploring autonomous systems and how they'll reshape our world.\n- Strengthened my foundations in **Data Structures & Algorithms**, which I know will pay dividends in interviews and real-world engineering.\n- Explored **operating system internals** — understanding the \"why\" behind every system call.\n- Kept creating content and sharing my learning journey with the community.\n\n**🌱 Reflections**\n\nSemester 3 was harder. The subjects demanded more depth, more rigor, and more time. A 9.33 isn't a 9.65, and that's okay. What matters is that the knowledge actually stuck this time — not just for exams, but for building.\n\nThe truth remains the same: **marks open doors, skills keep them open.** I'd rather deeply understand operating systems and data structures than memorize answers for a perfect score.\n\nHere's to Semester 4, and the relentless pursuit of building things that matter. 🔥",
+        "created_at": "2026-03-08",
+        "updated_at": "2026-03-08",
+        "src": "/blogassets/blog9.png",
+        "isAchievement": true,
+        "tags": [
+          "Education",
+          "Semester 3",
+          "Results",
+          "Data Structures",
+          "Operating Systems",
+          "Computer Science",
+          "NIE Mysuru"
+        ],
+        "route": "/blogs/9"
+      },
+      {
+        "id": "8",
+        "category": "Education",
+        "title": "Semester 2 Results & Reflections",
+        "content": "This semester officially comes to an end, and with it, Semester 2 at The National Institute of Engineering, Mysuru.\n\nThe results came in: **9.65 SGPA** with all 20 credits earned. On paper, that looks like the headline — but honestly, for me, it isn’t.\n\nWhat really defined this semester wasn’t the numbers. It was the projects, the learning, and the momentum that came with building consistently.\n\n**📊 Semester 2 Results**\nHere’s a quick breakdown of my marks:\n\n- **Computer-Aided Engineering Drawing**: 94 (O)\n- **Applied Chemistry for CSE Stream**: 94 (O)\n- **Introduction to Mechanical Engineering**: 86 (A+)\n- **Indian Constitution**: 46 (O)\n- **Mathematics-II for CSE Stream**: 89 (A+)\n- **Introduction to Python Programming**: 90 (O)\n- **Professional Writing Skills in English**: 49 (O)\n- **Scientific Foundations of Health**: 50 (O)\n\n**Final SGPA: 9.65**\n\n**🚀 Beyond the Marks**\nThe numbers don’t tell the full story. What really mattered this semester was:\n\n- Building and launching **Talk2Job**, my first voice-based AI interview preparation platform.\n- Creating my personal website: [shreyas.cloud](https://shreyas.cloud), a space that truly reflects who I am.\n- Diving into **Next.js, Firebase, Tailwind, Vercel, VAPI, and Google Gemini**, and learning to connect them meaningfully.\n- Participating in the **Generative AI Exchange Program**, which expanded how I think about AI’s real-world impact.\n- Attempting the **All India Naukri Campus Aptitude Test (CAT)**, to benchmark myself nationally.\n\n**🌱 Reflections**\nGrades feel good, but they’re just numbers. What I’ll carry forward are the **skills I built**, the **projects I shipped**, and the **mindset** to keep learning by building.\n\nSemester 2 reinforced something important: marks can open doors, but **skills keep them open**. Real compounding comes from writing, shipping, iterating, and collaborating — not just scoring well.\n\nHere’s to Semester 3, and everything it brings next.",
+        "created_at": "2025-08-21",
+        "updated_at": "2025-08-21",
+        "src": "/blogassets/blog8.png",
+        "isAchievement": true,
+        "tags": [
+          "Education",
+          "Semester 2",
+          "Results",
+          "Skills",
+          "Projects",
+          "AI",
+          "Next.js",
+          "Firebase",
+          "Tailwind"
+        ],
+        "route": "/blogs/8"
+      },
+      {
+        "id": "7",
+        "category": "Tech",
+        "title": "The Great Digital Heist: 16 Billion Passwords Leaked in 2025’s Unprecedented Cyber Breach 🚨",
+        "content": "\n🔑 **Key Points**\n\n- A massive 16 billion usernames and passwords have been leaked in 2025, dubbed the \"Mother of All Breaches,\" affecting platforms like Google, Apple, and Facebook. 😱\n- This breach, driven by infostealer malware, provides a blueprint for phishing, identity theft, and account takeovers, threatening personal and corporate security. 🦠\n- Immediate action—changing passwords, enabling MFA, and using passkeys—can protect users, while the breach signals a shift toward more secure authentication methods. 🛡️\n\n**🌟 Introduction to the 2025 Data Breach**\n\nIn the digital tapestry of 2025, where every click and login weaves our lives into the internet, a catastrophic breach has torn through the fabric of cybersecurity. 🌐 Picture a cosmic vault holding the keys to billions of lives—your email, social media, bank accounts, and even government portals—now shattered, its contents strewn across the dark web like embers from a wildfire. 🔥 This is the reality of the **16 billion username and password leak**, uncovered by Cybernews researchers and reported by Forbes, marking it as the largest data breach in history. 😲 This isn’t just a leak; it’s a digital heist of unprecedented scale, a blueprint for chaos that demands immediate action to secure your online life. 🚨\n\n**🔄 The Breach and Its Mechanics**\n\nThis colossal breach, a compilation of **30 distinct datasets** ranging from millions to 3.5 billion records, was orchestrated by **infostealer malware**—silent predators that infiltrate devices to harvest login credentials. 🦠 These datasets, structured with chilling precision (URL, username, password), target platforms like **Google**, **Apple**, **Facebook**, **GitHub**, **Telegram**, and government services. 🏛️ Unlike prior leaks like **RockYou2024** (10 billion passwords) or the **Mother of All Breaches** (26 billion records), most of this data is fresh, making it a potent weapon for cybercriminals. 🔫 The scale—16 billion credentials against 5.5 billion internet users—implies multiple compromised accounts per person, amplifying the risk of mass exploitation. 📊\n\n**🌍 Real-World Impact and Risks**\n\nThe fallout from this breach is a hacker’s paradise, enabling a wave of attacks:\n\n- **Phishing Attacks** 🎣: Cybercriminals can craft targeted emails using leaked credentials, tricking users into revealing more data or clicking malicious links.\n- **Account Takeovers** 🔓: Reused passwords across platforms could unlock your entire digital life—email, banking, social media—in seconds.\n- **Identity Theft** 😷: Your data on the dark web could fuel fraudulent accounts or impersonation, draining finances and reputations.\n- **Ransomware and Extortion** 💸: Access to corporate or government systems could lead to devastating system lockdowns or data extortion.\n\nCybersecurity expert Javvad Malik warns, “Do not wait for your credentials to appear in one of these breaches.” 🚫 Password reuse is the Achilles’ heel, and the structured data format makes automated attacks terrifyingly efficient. ⚡\n\n**📑 Detailed Analysis: The Mother of All Breaches**\n\n**🧩 Overview and Scope**\n\nThe 2025 breach, dubbed the \"Mother of All Breaches,\" is a compilation of 16 billion username-password pairs, uncovered by Cybernews in early 2025. 📜 Unlike singular breaches, this is a curated dataset from **30 sources**, each meticulously organized for maximum exploitability. Platforms like **Google**, **Apple**, **Facebook**, **GitHub**, and **Telegram** are heavily impacted, alongside VPNs and government portals. 🖥️ Vilius Petkauskas of Cybernews calls it “a blueprint for mass exploitation,” with its standardized format enabling rapid deployment in phishing and credential-stuffing campaigns. 📈\n\n**🧠 Origins and Mechanisms**\n\nThe breach stems from **infostealer malware**, which covertly collects login details from infected devices, and **credential stuffing**, where attackers test stolen credentials across multiple platforms. 🕸️ These datasets, briefly exposed on the dark web, were aggregated with surgical precision, though their exact origins remain elusive. 🕵️‍♂️ While 184 million records overlap with prior leaks, the majority are new, amplifying the threat. Tether CEO Paolo Ardoino, reacting on X, announced **PearPass**, a local password manager, stating, “No cloud. No servers. No leaks. Ever,” highlighting the cloud’s vulnerabilities. ☁️\n\n**🔧 How It Works: The Hacker’s Playbook**\n\nThe process behind this breach is chillingly efficient:\n\n1. **Infection**: Malware infiltrates devices via phishing emails, malicious downloads, or unsecured apps, silently harvesting login data. 🦠\n2. **Data Collection**: Credentials are organized into structured datasets (URL, username, password), ready for exploitation. 📋\n3. **Distribution**: These datasets are sold or shared on the dark web, fueling a black market for stolen credentials. 🌑\n4. **Exploitation**: Hackers use automated tools for credential stuffing or craft targeted phishing campaigns to maximize damage. 🎣\n\nThis streamlined process makes the breach a plug-and-play toolkit for cybercriminals, with immediate risks to individuals and organizations. 🔍\n\n**⚡ Impacts: Immediate and Long-Term**\n\nThe immediate risks are dire: phishing, account takeovers, identity theft, and ransomware threaten individuals and institutions. 💸 Long-term, this breach exposes the fragility of password-based systems. Google, Apple, and others are pushing **passkeys**, cryptographic alternatives immune to phishing. 🔒 The breach has also sparked a shift toward local storage solutions like PearPass, reducing reliance on vulnerable cloud systems. 🌟\n\n**⚠️ Challenges: Navigating the Fallout**\n\n- **Password Reuse** 🚫: Reusing passwords across platforms multiplies risks, as a single leak can compromise multiple accounts.\n- **Malware Detection** 🧹: Infostealers are hard to detect, requiring robust antivirus software and user vigilance.\n- **Scale of Exposure** 📊: With 16 billion credentials, the sheer volume overwhelms traditional response strategies, necessitating urgent action.\n\n**🧪 Protective Measures: A Cybersecurity Battle Plan**\n\nTo combat this threat, adopt these actionable steps:\n\n1. **Check for Breaches** 🔎: Use **Have I Been Pwned** (haveibeenpwned.com) to verify if your email or phone is compromised. 📬\n2. **Update Passwords** 🔄: Create **strong, unique passwords** with letters, numbers, and symbols. Avoid “12345678” or “password.” 🚫\n3. **Enable MFA** 🔐: Add multi-factor authentication to email, banking, and social media for an extra security layer. 📱\n4. **Use a Password Manager** 📋: Tools like LastPass, 1Password, or PearPass generate and store complex passwords securely. 🛠️\n5. **Adopt Passkeys** 🔑: Switch to passkeys on supported platforms like Google and Apple for phishing-resistant authentication. 😎\n6. **Scan for Malware** 🧹: Run trusted antivirus software to detect and remove infostealers before updating passwords. 🦠\n7. **Monitor Accounts** 👀: Watch for suspicious activity in bank accounts, email, and social media, reporting issues immediately. 🚨\n8. **Delete Old Accounts** 🗑️: Remove unused accounts to shrink your digital footprint. 🧹\n9. **Stay Vigilant** 🛡️: Avoid suspicious links in emails or texts, as phishing attacks will spike post-breach. 🚔\n\n**🔮 Future Outlook: Redefining Cybersecurity**\n\nThis breach is a wake-up call for a new era of cybersecurity. 🌅 Companies must adopt **zero-trust frameworks** and **privileged access controls**, while users embrace **cyber hygiene**—no weak passwords, no reuse. 🙅‍♂️ The shift to **passkeys** and local storage solutions like PearPass signals a move away from vulnerable password systems. 🌍 As cybercriminals evolve, so must we, leveraging AI-driven security tools and proactive monitoring to stay ahead. 🧭\n\n**📢 Conclusion and Call to Action**\n\nThe 16 billion credential leak of 2025 is a digital reckoning, exposing the fragility of our online world. 🚨 But it’s also a chance to fortify your defenses. Check your accounts on **Have I Been Pwned**, update passwords, enable MFA, and explore passkeys. 💪 Tools like PearPass and antivirus software can safeguard your data, while vigilance against phishing keeps hackers at bay. 🛡️ The internet is a wild frontier, but with the right strategies, you can navigate it safely. Visit <a href=\"https://cybernews.com\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-indigo-400 hover:text-indigo-300 hover:underline inline-flex items-center gap-1\">CyberNews</a> or <a href=\"https://forbes.com\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-indigo-400 hover:text-indigo-300 hover:underline inline-flex items-center gap-1\">Forbes</a> for updates, and take control of your digital life today! 🌟\n    ",
+        "created_at": "2025-06-21",
+        "updated_at": "2025-06-21",
+        "tags": [
+          "cybersecurity",
+          "data breach",
+          "password leak",
+          "infostealer malware",
+          "phishing attacks",
+          "identity theft",
+          "account takeover",
+          "password manager",
+          "passkeys",
+          "multi-factor authentication",
+          "dark web",
+          "online security",
+          "credential stuffing",
+          "Google security",
+          "Apple security",
+          "Facebook security",
+          "2025 data breach"
+        ],
+        "src": "/blogassets/blog7.avif",
+        "route": "/blogs/7"
+      },
+      {
+        "id": "6",
+        "category": "Tech",
+        "title": "🚀 Vibe Coding: The Future of AI-Powered Software Creation",
+        "content": "**🔑 Key Points**\n\nVibe coding seems likely to be an AI-assisted programming method where developers use natural language to generate code, potentially transforming software development.\n\nResearch suggests it increases productivity, makes coding accessible to non-coders, and allows focus on creativity, but challenges like code accuracy and debugging remain.\n\nThe evidence leans toward vibe coding being used by startups and individuals for quick app development, with potential for future industry impact.\n\n**🌟 Introduction to Vibe Coding**\n\nVibe coding is an emerging approach in software development, where developers describe what they want in natural language, and AI generates the code. Coined by AI expert Andrej Karpathy in February 2025, it shifts the focus from manual coding to guiding AI, making it accessible even to those without deep programming knowledge.\n\n**🔄 The Process and Benefits**\n\nThe process involves describing ideas in prompts, letting AI generate code, and refining it. This can boost productivity, enable non-coders to create software, and free up time for creative design. However, challenges like ensuring code accuracy and debugging AI-generated code require human oversight.\n\n**🌍 Real-World Impact and Future Outlook**\n\nStartups and individuals are already using vibe coding for quick app development, like personalized tools or lean startup teams. Looking ahead, it seems likely to evolve, potentially democratizing software creation and reshaping the industry, though concerns about quality and security persist.\n\n**📑 Survey Note: Detailed Analysis of Vibe Coding in Software Development**\n\n**🧩 Overview and Definition**\n\nVibe coding, a term introduced by computer scientist Andrej Karpathy in February 2025, is an AI-dependent programming technique that relies on large language models (LLMs) to generate code from natural language prompts. This method marks a significant departure from traditional coding, where developers manually write code line by line, requiring extensive knowledge of programming languages and syntax.\n\nInstead, vibe coding allows individuals to describe their software ideas in plain English, with AI tools like Cursor Composer, GitHub Copilot, and Replit Agent translating these descriptions into functional code. This shift redefines the programmer's role, focusing on guiding, testing, and refining AI-generated outputs rather than writing code from scratch.\n\nThe concept gained traction quickly, with Merriam-Webster listing it as a \"slang & trending\" noun in March 2025, reflecting its rapid adoption in tech circles. It is particularly noted for enabling amateur programmers and non-coders to produce software, potentially democratizing the field.\n\n**🧠 Origins and Historical Context**\n\nThe origins of vibe coding can be traced to the advancements in AI, particularly the development of LLMs capable of understanding and generating code from natural language.\n\nKarpathy, a co-founder of OpenAI and former AI leader at Tesla, introduced the term in an X post on February 2, 2025, describing it as:\n\n*\"A new kind of coding where you fully give in to the vibes, embrace exponentials, and forget that the code even exists.\"*\n\nThis casual description highlights the intuitive, less technical approach, contrasting with traditional software development's emphasis on precision and control.\n\nThe rise of tools like ChatGPT (released in late 2022) laid the groundwork, with Karpathy noting in an X post at the time:\n\n*\"The hottest new programming language is English,\"*\n\nunderscoring the potential of prompt-driven coding. Vibe coding builds on this, formalizing the practice with a catchy name that resonates in Silicon Valley and beyond.\n\n**🔧 The Process: How It Works**\n\nThe vibe coding process is iterative and user-friendly, designed to simplify software development:\n\n1. **Conceptualization**: Developers or creators start by thinking about the desired functionality, such as building a simple website or a utility app.\n\n2. **Prompt Creation**: They articulate their idea in natural language, providing detailed prompts to the AI. For example:\n*\"Create a React app that takes a photo of a restaurant menu, translates it, and shows a list of food with photos.\"*\n\n3. **Code Generation**: The AI, using tools like Cursor or Replit, generates the corresponding code based on the prompt. This can include front-end, back-end, database integration, and more, depending on the complexity.\n\n4. **Review and Refinement**: The developer tests the generated code, identifies issues, and provides further prompts for adjustments. This might involve fixing bugs, enhancing features, or optimizing performance.\n\nThis process contrasts with traditional coding, where developers write every line manually, often requiring deep technical expertise. Vibe coding's reliance on AI shifts the burden, allowing for rapid prototyping and iteration, as seen in guides like Getting Started with Vibe Coding, which recommend starting with small projects to leverage AI effectively.\n\n**⚡ Benefits: Enhancing Productivity and Accessibility**\n\nVibe coding offers several compelling benefits, supported by early adopters and industry observations:\n\n✅ **Increased Productivity**: By automating code generation, developers can focus on higher-level design and functionality, significantly reducing development time.\nBusiness Insider reports that engineers using AI tools can get \"twice as much done,\" highlighting efficiency gains.\n\n✅ **Accessibility for Non-Coders**: It lowers the barrier to entry, enabling individuals without formal coding training to create software.\nExamples like New York Times journalist Kevin Roose, who used vibe coding to build \"LunchBox Buddy\" (a personalized app analyzing fridge contents for lunch suggestions), highlight this shift.\n\n✅ **Focus on Creative Aspects**: With AI handling the technical details, developers can concentrate on user experience, design, and innovation.\nArs Technica describes vibe coding as \"surrendering to the flow,\" emphasizing creative freedom.\n\nThese benefits are particularly appealing in industries where rapid prototyping and customization are valued, potentially accelerating software adoption in sectors like education, healthcare, and small businesses.\n\n**⚠️ Challenges: Navigating Accuracy and Oversight**\n\nDespite its promise, vibe coding faces several challenges that require careful consideration:\n\n❌ **Code Accuracy**: AI-generated code may contain errors or suboptimal solutions, necessitating thorough testing.\nHacker News discussions highlight concerns about AI fabricating fake reviews in e-commerce apps, underscoring reliability issues.\n\n❌ **Debugging Difficulties**: Understanding and fixing errors in AI-generated code can be challenging, especially for developers unfamiliar with the underlying logic.\nAs Ars Technica notes, the process often involves \"feeding errors back to AI and hoping for fixes,\" which may not always work.\n\n❌ **Need for Human Oversight**: Even with AI assistance, human intervention is crucial to ensure code quality, security, and compliance with standards.\nLovable Blog addresses this, noting concerns about long-term maintainability and security, particularly for critical applications.\n\nThese challenges suggest that while vibe coding is transformative, it is not a complete replacement for traditional coding—especially in complex or high-stakes projects.\n\n**🧪 Real-World Examples: Case Studies and Applications**\n\nVibe coding is already being implemented across various contexts, demonstrating its practical utility:\n\n🚀 **Startups and Lean Teams**: Y Combinator CEO Garry Tan, in an interview with Business Insider, highlighted how vibe coding enables startups to achieve significant revenue with small teams (e.g., reaching millions with under ten employees). This is attributed to AI handling much of the coding workload, allowing leaner operations.\n\n👤 **Individual Creators**: Kevin Roose's experiment, detailed in Wikipedia: Vibe coding, involved creating \"software for one,\" like LunchBox Buddy, showing how non-coders can build personalized tools.\nAnother example is a developer building a plane game with enemy UFO AI, as mentioned in 12 Rules to Vibe Code Without Frustration, illustrating hobbyist applications.\n\n🧱 **Full-Stack Projects**: A Comprehensive Guide to Vibe Coding Tools catalogs tools for building full-stack apps, including front-end, back-end, and database integration—showing its versatility for more complex projects.\n\nThese examples underscore vibe coding's role in enabling rapid development and innovation, particularly for startups and individual creators.\n\n**🔮 Future Outlook: Potential Evolution and Industry Impact**\n\nThe future of vibe coding appears promising, with potential to reshape the software development landscape:\n\n🧠 **Technological Advancements**: As AI improves, vibe coding is likely to handle more complex tasks, potentially generating code with higher accuracy and sophistication.\nAndrew Chen's Substack predicts adaptive software that adjusts based on user behavior, specified by outcomes rather than code, akin to spreadsheets for non-technical users.\n\n🏭 **Industry Transformation**: It could democratize software development, allowing more industries to create custom solutions, as noted in UX Tigers, where it is seen as intent-based outcome specification.\nThis might accelerate software adoption in long-tail industries, as suggested by Andrew Chen.\n\n🛡 **Challenges and Controversies**: However, concerns about code quality, security, and the need for professional oversight remain, as discussed in Hacker News, potentially increasing demand for specialized services to complement vibe coding.\n\nThe debate around whether traditional coding skills will remain relevant is ongoing, with figures like GitHub COO Kyle Daigle, in Moneycontrol, arguing that problem-solving skills are timeless, even as AI automates coding.\n\n**⚖️ Comparative Analysis: Traditional vs. Vibe Coding**\n\n<BlogTable\n  headers={[\"Aspect\", \"Traditional Coding\", \"Vibe Coding\"]}\n  rows={[\n    {\n      \"Aspect\": \"Skill Requirement\",\n      \"Traditional Coding\": \"High (programming languages, syntax)\",\n      \"Vibe Coding\": \"Low (natural language prompts)\"\n    },\n    {\n      \"Aspect\": \"Development Speed\",\n      \"Traditional Coding\": \"Slower, manual process\",\n      \"Vibe Coding\": \"Faster, AI-assisted\"\n    },\n    {\n      \"Aspect\": \"Accessibility\",\n      \"Traditional Coding\": \"Limited to coders\",\n      \"Vibe Coding\": \"Open to non-coders\"\n    },\n    {\n      \"Aspect\": \"Debugging\",\n      \"Traditional Coding\": \"Easier for coder, familiar with code\",\n      \"Vibe Coding\": \"Potentially harder, less familiarity\"\n    },\n    {\n      \"Aspect\": \"Oversight Needed\",\n      \"Traditional Coding\": \"Less, coder controls process\",\n      \"Vibe Coding\": \"More, to ensure AI output quality\"\n    }\n  ]}\n/>\n\n**📢 Conclusion and Call to Action**\n\nVibe coding represents a paradigm shift in software development, offering increased efficiency, accessibility, and creativity. While challenges like code accuracy and debugging persist, its real-world applications in startups and individual projects demonstrate its transformative potential.\n\nAs AI continues to evolve, it seems likely to play a significant role in the future, potentially reshaping industry practices.\n\n💡 For those interested, exploring tools like Cursor, GitHub Copilot, or Replit Agent can provide a hands-on introduction to vibe coding. Whether you're a seasoned developer or a curious beginner, now is the time to experiment and see how this approach can enhance your software creation process.",
+        "created_at": "2025-04-11",
+        "updated_at": "2025-04-11",
+        "tags": [
+          "AI",
+          "Programming",
+          "Vibe Coding",
+          "Software Development",
+          "Future Tech"
+        ],
+        "src": "/blogassets/blog6.jpeg",
+        "route": "/blogs/6"
+      },
+      {
+        "id": "5",
+        "category": "Tech",
+        "title": "GPT-4o's Image Generation: Innovation or Imitation? The Studio Ghibli Controversy Unpacked",
+        "content": "In the ever-evolving landscape of AI, GPT-4o, OpenAI's latest multimodal marvel, has stirred both awe and outrage. Unveiled in May 2024, this powerhouse model seamlessly generates text, images, and even audio—a creative revolution at our fingertips. But when it rolled out image generation on March 25, 2025, one feature stole the spotlight (and sparked heated debates): the Studio Ghibli filter.\n\nThis tool, capable of producing breathtaking visuals inspired by \"Spirited Away\" and \"My Neighbor Totoro,\" went viral—only to be met with backlash from artists, legal experts, and Ghibli fans alike. Why? Because legendary filmmaker Hayao Miyazaki has long condemned AI in animation, famously calling it an \"*insult to life itself.*\"\n\nSo, is this just another AI breakthrough, or has GPT-4o crossed the line into artistic theft? Let's dive into the technology, the advantages, the controversies, and what it all means for the future of AI-driven creativity.\n\n**Inside GPT-4o's Image Generation: How It Works**\n\nGPT-4o's image creation isn't just an add-on—it's a game changer. Unlike earlier models like DALL-E 3, which relied on diffusion transformers, GPT-4o integrates image generation directly into its multimodal framework. This unified approach allows it to process complex text prompts and render detailed, highly contextual visuals in seconds.\n\n**Key Strengths: Why GPT-4o is a Creative Powerhouse**\n\n✅ **Effortless Artistry** – No design skills? No problem. A simple text prompt like \"A cyberpunk city under neon rain\" can generate stunning results.\n✅ **Interactive Editing** – Users can tweak images in real-time. Want more stars in the night sky? Just ask.\n✅ **Versatile Styles** – From hyper-realistic landscapes to dreamy anime aesthetics, GPT-4o adapts seamlessly.\n✅ **Fast and Accessible** – No complex software, no manual drawing—just instant creativity at your fingertips.\n\nBut where there's innovation, there's also controversy. And that's where the Studio Ghibli filter enters the scene.\n\n**The Studio Ghibli Filter: A Nostalgic Dream or an Ethical Nightmare?**\n\nAt first glance, the ability to \"Ghiblify\" any image seems magical. Users flocked to social media, sharing AI-generated scenes that looked straight out of a Miyazaki classic. But not everyone was impressed.\n\n**Some of my generations:**\n\n<div class=\"blog-image-grid\">\n  <img src=\"https://i.ibb.co/ZRk7vtrT/Chat-GPT-Image-Mar-29-2025-02-17-16-PM.png\" alt=\"AI Ghibli landscape\" />\n  <img src=\"https://i.ibb.co/ZRTvPz88/Chat-GPT-Image-Mar-29-2025-02-17-24-PM.png\" alt=\"AI Ghibli character\" />\n  <img src=\"https://i.ibb.co/d4Y4nMv1/Chat-GPT-Image-Mar-29-2025-02-22-13-PM.png\" alt=\"AI Ghibli scene\" />\n  <img src=\"https://i.ibb.co/840khZ2X/Chat-GPT-Image-Mar-29-2025-02-57-13-PM.png\" alt=\"AI Ghibli cityscape\" />\n  <img src=\"https://i.ibb.co/WpfYRyt6/Chat-GPT-Image-Mar-29-2025-05-42-15-PM.png\" alt=\"AI Ghibli fantasy\" />\n</div>\n\n**Why Artists (and Fans) Are Outraged**\n\n🎨 **Miyazaki's Opposition** – The legendary filmmaker has openly despised AI in animation since 2016, seeing it as soulless and inhuman.\n⚖️ **Copyright Concerns** – If GPT-4o was trained on Ghibli artwork without permission, is it legal—or outright theft?\n🖌️ **Artistic Exploitation** – Many believe AI-generated Ghibli-style art devalues human creativity, as artists receive no recognition or compensation.\n\nEven more troubling, the filter took a political turn. When the White House posted a Ghibli-style image of a migrant arrest, it ignited global backlash. Many saw it as tone-deaf and exploitative, raising concerns about AI's ability to repurpose art in ways that its original creators would never approve.\n\n**The Future of AI Art: Where Do We Go From Here?**\n\nGPT-4o's image generation is undoubtedly a technological leap, but it also serves as a wake-up call. As AI blurs the lines between creativity and controversy, one question looms large:\n\n🔹 Should AI be allowed to mimic iconic artistic styles without consent?\n\nFor now, OpenAI remains tight-lipped about whether its model was trained on copyrighted material. Legal battles loom on the horizon, with artists like Karla Ortiz calling for greater transparency and protection.\n\nOne thing is clear: AI isn't going away. But if it's to coexist with human artistry, companies must navigate these ethical minefields with respect, responsibility, and a deep appreciation for the creative minds that came before.\n\nSo, is GPT-4o's Studio Ghibli filter an exciting tribute or an artistic trespass? That's for you to decide.",
+        "created_at": "2025-03-31",
+        "updated_at": "2025-04-11",
+        "tags": [
+          "AI",
+          "GPT-4o",
+          "Studio Ghibli",
+          "Image Generation",
+          "Ethics"
+        ],
+        "route": "/blogs/5"
+      },
+      {
+        "id": "1",
+        "category": "Tech",
+        "title": "🚀 My Portfolio Website 2.0: A Complete Overhaul 🎨💻",
+        "content": "**🌟 The Big Transformation**\n\nWhen I first built my portfolio website, it was just another static site with HTML & CSS—functional, yes, but not meant to turn heads. I knew I needed something bigger, better, and bolder. So, I rolled up my sleeves and embarked on an adventure to completely revamp my website from scratch using Vite, React, and TypeScript! 🛠️\n\nAnd wow, what a journey it has been! 🚀 From adding fancy animations to completely overhauling the blog system, I've pushed my skills to the next level to create something that feels modern, interactive, and uniquely mine. Let's dive into every single update I made! 👇\n\n**🔥 Every Cool Thing I Added & Upgraded**\n\n**🏗️ Tech Stack Upgrade - A Stronger Foundation**\n\n🔹 Old Site: Static HTML & CSS 💤\n🔹 New Site: Vite + React + TypeScript ⚡\n🔹 Styling: Switched to Tailwind CSS for faster and cleaner designs ✨\n🔹 Animations: Introduced Framer Motion for sleek, professional transitions 🌀\n🔹 Performance Boost: Optimized loading speeds and lazy-loaded assets 🚄\n\n**🎨 UI & UX Glow-Up - Making It Visually Stunning ✨**\n\n✅ 3D Effects & Glassmorphism: Smooth, futuristic, and modern! 🪩\n✅ Cursor Interactions: Subtle yet effective hover & motion effects\n✅ Smooth Page Transitions: No more clunky reloads! Just sleek animations 🕶️\n✅ Mobile-First Design: It looks gorgeous on ANY screen size 📱💻\n✅ Loading Animations: A little extra magic when you land on the page ✨\n\n**📝 Blog Section - The Ultimate Revamp 🔄**\n\n💡 Dynamic Blog System: No more basic static posts—blogs are now fully interactive!\n💡 Apple-Style Card Carousel: The latest 3 blogs are displayed in a sleek carousel 🎠\n💡 Dedicated Blog Pages: Each post has its own individual page 📝\n💡 Back Button: Easily return to the main blog list 🔙\n💡 Read More Button: Expands previews into full-length posts 📖\n💡 Blog List Page: A clean, modern interface to browse all posts at once 🌍\n\n**❤️ Likes & Comments System - Because Interaction Matters!**\n\n💬 Like & React Feature: Users can now express their thoughts with reactions! 🔥💖👍\n💬 Comment System: I'm working on an easy, lightweight way to let users leave comments 📝\n💬 Engaging UI for Likes: Smooth hover animations make it fun to interact 🎭\n\n**📩 Contact Form - Smarter & More Responsive**\n\n✉️ Formspree Integration: A simple, effective way to handle messages 📬\n✉️ Automatic Email Replies: Users instantly get an email confirmation after submitting the form 📧\n✉️ Basic Email Validation: Prevents spam & fake submissions 🚫\n\n**🌐 Additional Tweaks & Polish**\n\n✨ SEO Optimization: Now Google & search engines can find me faster! 🔍\n✨ Optimized Performance: Reduced load times by compressing images & removing bloat 🚀\n✨ Cleaned Up Code: Refactored everything to make it more efficient & readable 💻🧹\n\n**🎯 The Final Result? A Portfolio That Finally Feels Like Me**\n\nThis wasn't just a redesign—it was a passion project. Every color, animation, and interaction was carefully crafted to create a website that feels alive, modern, and professional. 🌟\n\nBut guess what? This is just the beginning. More features, tweaks, and improvements are coming! 🔥 If you have any ideas or feedback, I'd love to hear them. 🤗\n\n**📂 Want to See the Source Code? Here's My GitHub Repo! 👨‍💻**\n\n<a href=\"https://github.com/SmartKidzee/new_portfolio\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-indigo-400 hover:text-indigo-300 hover:underline inline-flex items-center gap-1\">Check out the code on GitHub - SmartKidzee/new_portfolio</a>\n\n**🌟 What's Next?**\n\n📌 Implementing real-time comments for blog posts 💬\n📌 Adding more interactive elements (think: cool hover effects & sound cues!) 🎵\n📌 Experimenting with new UI animations using GSAP 🎭\n\nThis journey was incredibly rewarding, and I'm so excited to keep refining & improving. What do you think of the new site? Let me know in the comments! 🚀💬",
+        "created_at": "2025-03-29",
+        "updated_at": "2025-04-11",
+        "src": "https://i.ibb.co/DD3tfFc2/Chat-GPT-Image-Mar-29-2025-04-41-50-PM.png",
+        "isAchievement": true,
+        "tags": [
+          "Portfolio",
+          "React",
+          "TypeScript",
+          "Vite",
+          "UI/UX",
+          "Development"
+        ],
+        "route": "/blogs/1"
+      },
+      {
+        "id": "2",
+        "category": "Academic Achievement",
+        "title": "🎓 Academic Achievement – First Semester Success!",
+        "content": "Semester 1 results are in – SGPA: 9.00.\n\nBut does it really mean anything? At the end of the day, grades don't define what you know or what you can do. A number on a piece of paper doesn't say whether you actually understood the concepts, built something useful, or developed a skill that matters in the real world.\n\n**What Actually Mattered:**\n\n📌 **Cybersecurity** – The theory was fine, but what really counts is understanding real-world threats and how to defend against them.\n📌 **Mathematics** – Problem-solving is useful, but grades in math? Not so much.\n📌 **Physics** – The exam tested memorization, but true understanding comes from application.\n📌 **Programming & Engineering Fundamentals** – This was the most valuable part—learning to think like a problem solver, write code, and debug efficiently.\n\nSome subjects were just there to check a box, while others had real-world relevance. The key lesson? Degrees don't guarantee knowledge—*skills do*.\n\nWith Semester 2 already in motion (since March 17, 2025), my focus is shifting toward real projects, hands-on coding, and learning things that actually matter. Numbers fade, skills last. Let's build. 🚀",
+        "created_at": "2025-03-25",
+        "updated_at": "2025-04-11",
+        "src": "https://i.ibb.co/qFLMNXRm/Chat-GPT-Image-Mar-29-2025-02-57-13-PM.png",
+        "isAchievement": true,
+        "tags": [
+          "Education",
+          "Academics",
+          "Learning"
+        ],
+        "route": "/blogs/2"
+      },
+      {
+        "id": "3",
+        "category": "Gaming",
+        "title": "🎮 Gaming – PS5 Unboxing Video!",
+        "content": "It finally happened—I got a PlayStation 5! 🎮🔥\n\nAfter months of watching unboxings, reading reviews, and debating whether to get one, I finally got my hands on Sony's next-gen beast. And let me tell you, this console does not disappoint.\n\n**Unboxing Experience**\n\n📦 **What's in the box?** PS5 console, DualSense controller, cables, and a stand—all beautifully packed.\n🎮 **First Impressions** – The console looks futuristic, and the DualSense controller is unlike anything I've used before.\n⚡ **Blazing-fast load times** – Games start instantly, no waiting, no lag.\n🔥 **Graphics & Performance** – I tested Spider-Man: Miles Morales and God of War Ragnarök—the ray tracing, the smooth 60 FPS gameplay, the details… absolutely mind-blowing.\n\nThe full unboxing video is up on my YouTube channel! Go check it out and comment which game I should try next! 🎥",
+        "created_at": "2025-03-22",
+        "updated_at": "2025-04-11",
+        "src": "https://images.unsplash.com/photo-1622297845775-5ff3fef71d13?auto=format&fit=crop&w=800",
+        "video": "https://www.youtube.com/embed/gM09dY6WKXY",
+        "tags": [
+          "Gaming",
+          "PlayStation",
+          "Tech"
+        ],
+        "route": "/blogs/3"
+      },
+      {
+        "id": "4",
+        "category": "Education",
+        "title": "📚 Education – A New Chapter at NIE",
+        "content": "Starting my journey at The National Institute of Engineering, Mysuru, has been an exciting, challenging, and eye-opening experience. Studying Computer Science & Engineering (CSE) with a specialization in AI & ML, I'm finally getting to explore cutting-edge technologies that truly excite me.\n\n**First Impressions & College Life So Far**\n\n✔ **Adjusting to the new routine** – From school to engineering life, it's a big transition.\n✔ **Exploring AI & ML** – This is what I signed up for, and I can't wait to build real-world applications.\n✔ **Connecting with like-minded people** – Meeting peers who share the same enthusiasm for tech.\n✔ **Hands-on learning** – It's not just about reading, it's about creating, experimenting, and building.\n\nWith Semester 2 in full swing, I'm now focusing on real-world projects, deeper learning, and constantly improving my coding skills. Engineering isn't just about passing subjects—*it's about building the future*.\n\nLooking forward to everything ahead! 🚀",
+        "created_at": "2025-03-20",
+        "updated_at": "2025-04-11",
+        "src": "https://i.ibb.co/HLv8CcCk/NIEimg.jpg",
+        "tags": [
+          "Education",
+          "Engineering",
+          "College"
+        ],
+        "route": "/blogs/4"
+      }
+    ]
+  },
+  "sourceFiles": [
+    "src/App.tsx",
+    "src/components/HomeBlogSection.tsx",
+    "src/data/blogs.ts",
+    "src/pages/blogs/BlogListPage.tsx",
+    "src/pages/blogs/BlogPage.tsx"
+  ]
+}

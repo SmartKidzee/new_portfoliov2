@@ -1,0 +1,62 @@
+-- Supabase Blog Insert Commands
+-- ============================================
+-- OPTION 1 (Recommended): Use the Node.js importer
+--   Run: node supabase/import-blogs.js
+--   This reads content-data/blogs.json and upserts all posts automatically.
+--   Requires: NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY in .env.local
+--
+-- OPTION 2: Manual insert via SQL Editor (for one-off inserts)
+--   Use dollar-quoted content for multiline rich posts.
+--
+-- ============================================
+-- TABLE SCHEMA (if not already created)
+-- ============================================
+-- CREATE TABLE IF NOT EXISTS blogs (
+--   id TEXT PRIMARY KEY,
+--   category TEXT NOT NULL,
+--   title TEXT NOT NULL,
+--   content TEXT NOT NULL,
+--   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+--   updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+--   src TEXT,
+--   "isAchievement" BOOLEAN DEFAULT FALSE,
+--   tags TEXT[] DEFAULT '{}',
+--   route TEXT NOT NULL,
+--   video TEXT
+-- );
+--
+-- ============================================
+-- INSERT TEMPLATE (fill in your data)
+-- ============================================
+-- INSERT INTO blogs (id, category, title, content, created_at, updated_at, src, "isAchievement", tags, route, video)
+-- VALUES (
+--   'your-id',
+--   'Category',
+--   'Your Title',
+--   $blog$
+--   **Your post content**
+--
+--   <BlogTable
+--     headers={["Aspect", "Traditional Coding", "Vibe Coding"]}
+--     rows={[
+--       {
+--         "Aspect": "Skill Requirement",
+--         "Traditional Coding": "High",
+--         "Vibe Coding": "Low"
+--       }
+--     ]}
+--   />
+--
+--   <div class="blog-image-grid">
+--     <img src="https://your-project.supabase.co/storage/v1/object/public/blog-images/post-1/shot-1.webp" alt="Shot 1" />
+--     <img src="https://your-project.supabase.co/storage/v1/object/public/blog-images/post-1/shot-2.webp" alt="Shot 2" />
+--   </div>
+--   $blog$,
+--   '2026-04-22',
+--   '2026-04-22',
+--   'https://your-project.supabase.co/storage/v1/object/public/blog-thumbnails/post-1-thumb.webp',
+--   FALSE,
+--   ARRAY['tag1', 'tag2'],
+--   '/blogs/your-id',
+--   NULL
+-- );

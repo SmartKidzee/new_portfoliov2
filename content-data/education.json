@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-04-22",
+  "sectionId": "education",
+  "sectionName": "Education",
+  "routeScope": [
+    "/"
+  ],
+  "audit": {
+    "overallStatus": "passed",
+    "checks": {
+      "content": "passed",
+      "layout": "passed",
+      "responsiveness": "passed",
+      "accessibility": "passed",
+      "dataIntegrity": "passed"
+    },
+    "notes": [
+      "Education entries are clearly separated and ordered from current study backward.",
+      "Timeline details and performance metrics are consistently represented."
+    ],
+    "issues": []
+  },
+  "content": {
+    "title": "Education",
+    "institutions": [
+      {
+        "institution": "The National Institute of Engineering, Mysuru",
+        "credential": "Bachelor of Engineering - BE, Computer Science (Specialisation in AI & ML)",
+        "period": "Sep 2024 - Jul 2028",
+        "activities": [
+          "Alpha Innovation & Tinkerer's Lab (AITL)"
+        ],
+        "metrics": {
+          "cgpa": "9.33"
+        }
+      },
+      {
+        "institution": "Pramati Hill View Academy",
+        "credential": "Senior Secondary Certificate - 12th board",
+        "period": "2022 - 2024",
+        "activities": [],
+        "metrics": {
+          "cgpa": "8.0"
+        }
+      },
+      {
+        "institution": "The Acme School",
+        "credential": "Secondary School Certificate - 10th board",
+        "period": null,
+        "activities": [],
+        "metrics": {
+          "percentage": "95.2%"
+        }
+      }
+    ]
+  },
+  "sourceFiles": [
+    "src/App.tsx"
+  ]
+}

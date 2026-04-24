@@ -1,0 +1,119 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-04-20",
+  "sectionId": "experience",
+  "sectionName": "Experience",
+  "routeScope": [
+    "/"
+  ],
+  "audit": {
+    "overallStatus": "passed-with-notes",
+    "checks": {
+      "content": "passed",
+      "layout": "passed",
+      "responsiveness": "passed",
+      "accessibility": "passed",
+      "dataIntegrity": "passed-with-notes"
+    },
+    "notes": [
+      "Experience is implemented as a milestone timeline rather than a traditional jobs-only resume section.",
+      "Links are present for externally referenced milestones such as GitHub and YouTube."
+    ],
+    "issues": []
+  },
+  "content": {
+    "title": "Experience",
+    "timeline": [
+      {
+        "role": "2018 - Started Exploring Tech",
+        "startDate": "2018",
+        "endDate": "2018",
+        "location": null,
+        "company": null,
+        "link": null,
+        "iconLabel": "Tech",
+        "achievements": [
+          "Got interested in computers and programming. Began learning basic coding."
+        ],
+        "skills": []
+      },
+      {
+        "role": "2020 - Started YouTube Channel",
+        "startDate": "2020",
+        "endDate": "2020",
+        "location": null,
+        "company": null,
+        "link": "https://youtube.com/SmartKidzee",
+        "iconLabel": "YouTube",
+        "achievements": [
+          "Launched my YouTube channel dedicated to tech reviews, tutorials, and coding.",
+          "YouTube: SmartKidzee"
+        ],
+        "skills": []
+      },
+      {
+        "role": "2022 - 10th Board Exams",
+        "startDate": "2022",
+        "endDate": "2022",
+        "location": null,
+        "company": null,
+        "link": null,
+        "iconLabel": "School",
+        "achievements": [
+          "Institution: The Acme School",
+          "Board: Secondary School Certificate",
+          "Percentage: 95.2%"
+        ],
+        "skills": []
+      },
+      {
+        "role": "2022 - 2024 | Senior Secondary",
+        "startDate": "2022",
+        "endDate": "2024",
+        "location": null,
+        "company": null,
+        "link": null,
+        "iconLabel": "Senior Secondary",
+        "achievements": [
+          "Institution: Pramati Hillview Academy",
+          "Board: Senior Secondary Certificate - 12th",
+          "CGPA: 8.0"
+        ],
+        "skills": []
+      },
+      {
+        "role": "2024 - Entered Engineering & Web Dev",
+        "startDate": "2024",
+        "endDate": "2024",
+        "location": null,
+        "company": null,
+        "link": "https://github.com/SmartKidzee",
+        "iconLabel": "GitHub",
+        "achievements": [
+          "Started college at NIE Mysore and developed my first website using HTML & CSS. Later upgraded with Three.js and Framer Motion.",
+          "GitHub: SmartKidzee"
+        ],
+        "skills": []
+      },
+      {
+        "role": "2025 - Present | Engineering & AI/ML Focus",
+        "startDate": "2025",
+        "endDate": "Present",
+        "location": null,
+        "company": null,
+        "link": null,
+        "iconLabel": "Engineering",
+        "achievements": [
+          "Institution: The National Institute Of Engineering, Mysore",
+          "Degree: BE, Computer Science - AI & ML",
+          "CGPA: 9.33",
+          "Currently in my Sophomore year, pursuing my engineering degree with a specialization in AI & ML."
+        ],
+        "skills": []
+      }
+    ]
+  },
+  "sourceFiles": [
+    "src/components/ExperienceSection.tsx"
+  ]
+}

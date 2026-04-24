@@ -1,0 +1,305 @@
+{
+  "schemaVersion": "3.0.0",
+  "generatedAt": "2026-04-22",
+  "categories": [
+    {
+      "id": "top-tier",
+      "label": "Category 1",
+      "title": "Core Strengths",
+      "emoji": "💥",
+      "description": "The skills I naturally lean on when I need to design, build, and ship a product end to end without losing polish.",
+      "previewTags": [
+        "Product thinking",
+        "Execution",
+        "Shipping loop"
+      ],
+      "skills": [
+        {
+          "slug": "full-stack-product-thinking",
+          "label": "Full Stack Product Thinking",
+          "defaultProgress": 87
+        },
+        {
+          "slug": "frontend-engineering",
+          "label": "Frontend Engineering (React, Next.js)",
+          "defaultProgress": 88
+        },
+        {
+          "slug": "backend-integration",
+          "label": "Backend Integration (Supabase, Firebase, Postgres, APIs)",
+          "defaultProgress": 85
+        },
+        {
+          "slug": "ai-product-development",
+          "label": "AI Product Development",
+          "defaultProgress": 89
+        },
+        {
+          "slug": "prompt-engineering",
+          "label": "Prompt Engineering",
+          "defaultProgress": 91
+        },
+        {
+          "slug": "api-integration",
+          "label": "API Integration",
+          "defaultProgress": 88
+        },
+        {
+          "slug": "tool-integration",
+          "label": "Tool Integration",
+          "defaultProgress": 85
+        }
+      ]
+    },
+    {
+      "id": "development-skills",
+      "label": "Category 2",
+      "title": "Development Skills",
+      "emoji": "💻",
+      "description": "Frontend quality, backend integration, responsive systems, and deployment-focused execution for modern web products.",
+      "previewTags": [
+        "Frontend",
+        "Backend",
+        "Deployment"
+      ],
+      "skills": [
+        {
+          "slug": "frontend-engineering",
+          "label": "Frontend Engineering (React, Next.js)",
+          "defaultProgress": 88
+        },
+        {
+          "slug": "backend-integration",
+          "label": "Backend Integration (Supabase, Firebase, Postgres, APIs)",
+          "defaultProgress": 85
+        },
+        {
+          "slug": "responsive-ui-design",
+          "label": "Responsive UI Design",
+          "defaultProgress": 90
+        },
+        {
+          "slug": "responsive-web-design",
+          "label": "Responsive Web Design",
+          "defaultProgress": 89
+        },
+        {
+          "slug": "api-integration",
+          "label": "API Integration",
+          "defaultProgress": 88
+        },
+        {
+          "slug": "full-stack-product-thinking",
+          "label": "Full Stack Product Thinking",
+          "defaultProgress": 87
+        },
+        {
+          "slug": "mysql-postgres",
+          "label": "MySQL & Postgres",
+          "defaultProgress": 82
+        },
+        {
+          "slug": "devops",
+          "label": "DevOps",
+          "defaultProgress": 74
+        }
+      ]
+    },
+    {
+      "id": "ai-skills",
+      "label": "Category 3",
+      "title": "AI Skills",
+      "emoji": "🤖",
+      "description": "Agentic workflows, prompt design, model integration, and practical AI product building that can move from prototype to real use.",
+      "previewTags": [
+        "Workflows",
+        "Prompts",
+        "Model integration"
+      ],
+      "skills": [
+        {
+          "slug": "ai-product-development",
+          "label": "AI Product Development",
+          "defaultProgress": 89
+        },
+        {
+          "slug": "ai-assisted-development",
+          "label": "AI-assisted Development",
+          "defaultProgress": 87
+        },
+        {
+          "slug": "tool-integration",
+          "label": "Tool Integration",
+          "defaultProgress": 85
+        },
+        {
+          "slug": "generative-ai-applications",
+          "label": "Generative AI Applications",
+          "defaultProgress": 87
+        },
+        {
+          "slug": "prompt-engineering",
+          "label": "Prompt Engineering",
+          "defaultProgress": 91
+        },
+        {
+          "slug": "vertex-gemini-integration",
+          "label": "Vertex AI & Gemini Integration",
+          "defaultProgress": 79
+        },
+        {
+          "slug": "ai-workflow-design",
+          "label": "AI Workflow Design",
+          "defaultProgress": 84
+        },
+        {
+          "slug": "ai-system-design",
+          "label": "AI System Design",
+          "defaultProgress": 83
+        }
+      ]
+    },
+    {
+      "id": "programming",
+      "label": "Category 4",
+      "title": "Programming",
+      "emoji": "⚙️",
+      "description": "The languages I rely on for product work, systems fundamentals, experimentation, and solving problems fast with confidence.",
+      "previewTags": [
+        "Type safety",
+        "Systems",
+        "Problem solving"
+      ],
+      "skills": [
+        {
+          "slug": "python",
+          "label": "Python",
+          "defaultProgress": 86
+        },
+        {
+          "slug": "typescript",
+          "label": "TypeScript",
+          "defaultProgress": 84
+        },
+        {
+          "slug": "c",
+          "label": "C",
+          "defaultProgress": 77
+        },
+        {
+          "slug": "cpp-dsa",
+          "label": "C++ (DSA)",
+          "defaultProgress": 81
+        }
+      ]
+    },
+    {
+      "id": "core-cs",
+      "label": "Category 5",
+      "title": "Core CS",
+      "emoji": "🧠",
+      "description": "The foundations that make architecture, debugging, optimization, and interview-style problem solving much more grounded.",
+      "previewTags": [
+        "Algorithms",
+        "Systems",
+        "Foundations"
+      ],
+      "skills": [
+        {
+          "slug": "data-structures-algorithms",
+          "label": "Data Structures & Algorithms",
+          "defaultProgress": 84
+        },
+        {
+          "slug": "dbms",
+          "label": "DBMS",
+          "defaultProgress": 79
+        },
+        {
+          "slug": "computer-networks",
+          "label": "Computer Networks",
+          "defaultProgress": 74
+        },
+        {
+          "slug": "linear-algebra-for-ml",
+          "label": "Linear Algebra for ML",
+          "defaultProgress": 72
+        }
+      ]
+    },
+    {
+      "id": "tools",
+      "label": "Category 6",
+      "title": "Tools",
+      "emoji": "🛠",
+      "description": "The stack around the code: versioning, AI coding agents, infra, deployment, local models, and product design utilities.",
+      "previewTags": [
+        "Infra",
+        "Agentic tooling",
+        "Delivery stack"
+      ],
+      "skills": [
+        {
+          "slug": "git-github",
+          "label": "Git & GitHub",
+          "defaultProgress": 88
+        },
+        {
+          "slug": "codex",
+          "label": "Codex",
+          "defaultProgress": 91
+        },
+        {
+          "slug": "claude-code",
+          "label": "Claude Code",
+          "defaultProgress": 88
+        },
+        {
+          "slug": "opencode",
+          "label": "OpenCode",
+          "defaultProgress": 80
+        },
+        {
+          "slug": "ollama",
+          "label": "Ollama",
+          "defaultProgress": 76
+        },
+        {
+          "slug": "vercel",
+          "label": "Vercel",
+          "defaultProgress": 87
+        },
+        {
+          "slug": "firebase",
+          "label": "Firebase",
+          "defaultProgress": 80
+        },
+        {
+          "slug": "supabase",
+          "label": "Supabase",
+          "defaultProgress": 86
+        },
+        {
+          "slug": "oracle-cloud-oci",
+          "label": "Oracle Cloud (OCI)",
+          "defaultProgress": 69
+        },
+        {
+          "slug": "google-stitch",
+          "label": "Google Stitch",
+          "defaultProgress": 74
+        },
+        {
+          "slug": "claude-design",
+          "label": "Claude Design",
+          "defaultProgress": 73
+        }
+      ]
+    }
+  ],
+  "sourceFiles": [
+    "components/portfolio-shell.tsx",
+    "lib/skill-radar.ts",
+    "supabase/skill-radar.sql"
+  ]
+}

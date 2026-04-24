@@ -1,0 +1,91 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-04-20",
+  "sectionId": "site-metadata",
+  "sectionName": "Site Metadata",
+  "routeScope": [
+    "/",
+    "/blogs",
+    "/blogs/:id"
+  ],
+  "audit": {
+    "overallStatus": "needs-attention",
+    "checks": {
+      "content": "passed",
+      "layout": "not-applicable",
+      "responsiveness": "not-applicable",
+      "accessibility": "not-applicable",
+      "dataIntegrity": "needs-attention"
+    },
+    "notes": [
+      "Meta title, description, canonical URL, and JSON-LD are present and build successfully.",
+      "The site includes both person and website structured data for search engines."
+    ],
+    "issues": [
+      {
+        "severity": "medium",
+        "code": "missing-structured-data-image",
+        "summary": "`PersonStructuredData` references `https://shreyas.cloud/profile.jpg`, but the repository does not include a matching public asset.",
+        "sourceFiles": [
+          "src/App.tsx",
+          "src/components/StructuredData.tsx",
+          "public/"
+        ]
+      },
+      {
+        "severity": "medium",
+        "code": "inconsistent-search-target",
+        "summary": "SearchAction targets are inconsistent: the inline SEO JSON-LD points to `/blogs?search=...`, while `WebsiteStructuredData` is configured with `https://shreyas.cloud/search` and converts that to `?q=`.",
+        "sourceFiles": [
+          "src/App.tsx",
+          "src/components/StructuredData.tsx"
+        ]
+      },
+      {
+        "severity": "low",
+        "code": "profile-role-messaging-drift",
+        "summary": "Profile messaging varies across metadata and visible content, including `Software Engineer`, `Tech Enthusiast`, and `upcoming agentic engineer`, which may dilute consistency.",
+        "sourceFiles": [
+          "src/App.tsx"
+        ]
+      }
+    ]
+  },
+  "content": {
+    "title": "Shreyas J",
+    "description": "Shreyas J builds AI systems, full-stack products, and polished web experiences from Mysuru, combining engineering craft with projects-first learning.",
+    "keywords": [
+      "Shreyas",
+      "ai systems",
+      "React",
+      "TypeScript",
+      "web development",
+      "portfolio",
+      "agentic engineer",
+      "full-stack developer",
+      "content creator"
+    ],
+    "canonicalUrl": "https://shreyas.cloud",
+    "websiteStructuredData": {
+      "name": "Shreyas J",
+      "url": "https://shreyas.cloud",
+      "searchUrl": "https://shreyas.cloud/search"
+    },
+    "personStructuredData": {
+      "name": "Shreyas J",
+      "jobTitle": "AI Systems & Full-Stack Builder",
+      "description": "Shreyas J builds AI systems, full-stack products, and polished web experiences from Mysuru, combining engineering craft with projects-first learning.",
+      "imageUrl": "https://shreyas.cloud/hero_image.png",
+      "sameAsLinks": [
+        "https://github.com/SmartKidzee",
+        "https://linkedin.com/in/smartshreyas",
+        "https://twitter.com/kidzeesmart",
+        "https://instagram.com/smartkidzee"
+      ]
+    }
+  },
+  "sourceFiles": [
+    "src/App.tsx",
+    "src/components/StructuredData.tsx"
+  ]
+}

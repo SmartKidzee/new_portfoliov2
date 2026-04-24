@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-04-22",
+  "sectionId": "stats",
+  "sectionName": "Impact Snapshot",
+  "routeScope": [
+    "/"
+  ],
+  "content": {
+    "title": "Impact Snapshot",
+    "items": [
+      {
+        "value": 3,
+        "label": "Projects Engineered",
+        "suffix": "+",
+        "caption": "Real-world AI & Full Stack Apps",
+        "decimals": 0
+      },
+      {
+        "value": 100,
+        "label": "Self-driven Learning",
+        "suffix": "%",
+        "caption": "Projects-first approach",
+        "decimals": 0
+      },
+      {
+        "value": 9.3,
+        "label": "Current CGPA",
+        "suffix": "+",
+        "caption": "Academic Consistency",
+        "decimals": 1
+      },
+      {
+        "value": 2028,
+        "label": "CSE @ NIE Mysuru",
+        "prefix": "Class of ",
+        "caption": "AI & ML Focus",
+        "decimals": 0,
+        "useGrouping": false
+      }
+    ]
+  },
+  "sourceFiles": [
+    "content-data/stats.json"
+  ]
+}

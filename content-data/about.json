@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-04-20",
+  "sectionId": "about",
+  "sectionName": "About Me",
+  "routeScope": [
+    "/"
+  ],
+  "audit": {
+    "overallStatus": "passed",
+    "checks": {
+      "content": "passed",
+      "layout": "passed",
+      "responsiveness": "passed",
+      "accessibility": "passed",
+      "dataIntegrity": "passed"
+    },
+    "notes": [
+      "About content is organized into short readable paragraphs and paired with profile imagery.",
+      "Responsive two-column layout collapses appropriately for smaller screens."
+    ],
+    "issues": []
+  },
+  "content": {
+    "title": "About Me",
+    "paragraphs": [
+      "I'm Shreyas, a Sophomore Computer Science and Engineering undergraduate at The National Institute of Engineering, Mysuru, specializing in Artificial Intelligence and Machine Learning.",
+      "I'm passionate about technology and enjoy diving deep into the ever-evolving world of AI and software development. When I'm not exploring the latest tech trends, you'll find me creating content for my YouTube channel, sharing insights as an Apple fanboy, or gaming on my PS5.",
+      "This website is built with Vite, React, and TypeScript, designed for speed, flexibility, and a modern experience. It's a step up from my earlier HTML & CSS site, bringing interactive elements and animations to showcase my work more dynamically."
+    ],
+    "profileMedia": {
+      "src": "/about-me.JPEG",
+      "alt": "Tech",
+      "variant": "tilted-card"
+    }
+  },
+  "sourceFiles": [
+    "src/App.tsx"
+  ]
+}

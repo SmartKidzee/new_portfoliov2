@@ -1,0 +1,47 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-04-20",
+  "sectionId": "home",
+  "sectionName": "Home",
+  "routeScope": [
+    "/"
+  ],
+  "audit": {
+    "overallStatus": "passed-with-notes",
+    "checks": {
+      "content": "passed",
+      "layout": "passed",
+      "responsiveness": "passed",
+      "accessibility": "passed-with-notes",
+      "dataIntegrity": "passed"
+    },
+    "notes": [
+      "Hero section uses semantic h1 content and responsive text scaling.",
+      "Portrait image includes alt text but the alt label is minimal rather than descriptive."
+    ],
+    "issues": []
+  },
+  "content": {
+    "headline": [
+      "BUILDING",
+      "THE",
+      "FUTURE"
+    ],
+    "intro": "I design and ship AI-first products with strong frontend craft, reliable backend integrations, and a builder mindset focused on real deployment.",
+    "visionStatement": "CODE THAT SPEAKS YOUR VISION",
+    "portrait": {
+      "src": "https://i.ibb.co/B55KFGh2/IMG-1106.jpg",
+      "alt": "Shreyas",
+      "loading": "eager"
+    },
+    "techStrip": [
+      "Responsive Web Design",
+      "API Integration",
+      "AI System Design",
+      "DevOps"
+    ]
+  },
+  "sourceFiles": [
+    "src/App.tsx"
+  ]
+}
