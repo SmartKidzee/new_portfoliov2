@@ -3,7 +3,6 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   allowedDevOrigins: ["192.168.1.15"],
   reactStrictMode: true,
-  distDir: "dist",
   trailingSlash: true,
   images: {
     /* Enable Next.js image optimization (was previously disabled).
