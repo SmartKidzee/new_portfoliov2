@@ -88,27 +88,38 @@ const RevealLoader = ({
         from: getStaggerFrom(staggerOrder) as any,
       };
 
+      // 0. Initial Setup
+      gsap.set(".name-text", { opacity: 1 });
+      gsap.set(".name-text span", { yPercent: 110 });
+
       // 1. Reveal Text
       tl.to(".name-text span", {
-        y: 0,
-        stagger: 0.05,
-        duration: 0.2,
-        ease: "power2.out",
+        yPercent: 0,
+        stagger: 0.04,
+        duration: 0.9,
+        ease: "expo.out",
       });
 
       // 2. Animate Bars (The main structural animation)
+      // Increased delay to 1.2s to give the heavy PortfolioShell (mounted at 1.2s)
+      // over 1 full second to compile WebGL shaders without interrupting animations!
       tl.to(".preloader-item", {
-        delay: 1,
-        duration: 0.5,
+        delay: 1.2,
+        duration: 0.8,
         stagger: staggerConfig,
         ...moveProps,
       })
-        // 3. Fade Text (Relative to bars starting)
-        .to(".name-text span", { autoAlpha: 0, duration: 0.3 }, `<${textFadeDelay}`)
+        // 3. Fade Text Smoothly
+        .to(".name-text span", { 
+          autoAlpha: 0, 
+          yPercent: -80, 
+          scale: 0.95,
+          duration: 0.6, 
+          stagger: 0.02,
+          ease: "power2.out" 
+        }, `<0.1`)
 
-        // 4. Hide Container (FIXED)
-        // Removed ">" so it waits for the *entire timeline* (bars OR text) to finish.
-        // Added "+=0.1" for a tiny buffer to prevent clipping.
+        // 4. Hide Container
         .to(preloaderRef.current, { autoAlpha: 0, duration: 0.1 }, "+=0.1");
     },
     { scope: preloaderRef, dependencies: [staggerOrder, movementDirection, textFadeDelay] },
@@ -134,7 +145,7 @@ const RevealLoader = ({
         <div className="overflow-hidden">
           <p
             className={cn(
-              "name-text flex leading-none tracking-tighter", // Removed mix-blend-difference
+              "name-text flex leading-none tracking-tighter opacity-0", // opacity-0 prevents FOUC
               anton.className
             )}
             style={{
@@ -149,7 +160,7 @@ const RevealLoader = ({
             }}
           >
             {text.split("").map((char, index) => (
-              <span key={index} className="inline-block translate-y-full">
+              <span key={index} className="inline-block">
                 {char === " " ? "\u00A0" : char}
               </span>
             ))}

@@ -36,6 +36,7 @@ type PortfolioShellProps = {
   content: PortfolioContent;
   latestPosts: BlogPost[];
   skillCategories: SkillShowcaseCategory[];
+  isInitialLoad?: boolean;
 };
 
 type NavSection = "home" | "work" | "skills" | "timeline" | "education" | "contact";
@@ -126,7 +127,7 @@ function SectionHeading({
   );
 }
 
-export function PortfolioShell({ content, latestPosts, skillCategories }: PortfolioShellProps) {
+export function PortfolioShell({ content, latestPosts, skillCategories, isInitialLoad = false }: PortfolioShellProps) {
   const rootRef = useRef<HTMLDivElement | null>(null);
   const heroRef = useRef<HTMLElement | null>(null);
   const lastScrollYRef = useRef(0);
@@ -307,23 +308,27 @@ export function PortfolioShell({ content, latestPosts, skillCategories }: Portfo
   }, [isMenuOpen]);
 
   useEffect(() => {
+    // If the loader was played, delay the hero animations until the loader bars slide away.
+    // This prevents the expensive blur() filters from tanking the frame rate during the loader outro.
+    const delayOffset = isInitialLoad ? 1.4 : 0.1;
+
     const context = gsap.context(() => {
       gsap.timeline({ defaults: { ease: "power3.out" } })
         .fromTo(
           ".name-reveal",
           { opacity: 0, y: 50 },
-          { opacity: 1, y: 0, duration: 1.2, delay: 0.1 },
+          { opacity: 1, y: 0, duration: 1.2, delay: delayOffset },
         )
         .fromTo(
           ".blur-in",
           { opacity: 0, filter: "blur(10px)", y: 20 },
-          { opacity: 1, filter: "blur(0px)", y: 0, duration: 1, stagger: 0.1, delay: 0.3 },
+          { opacity: 1, filter: "blur(0px)", y: 0, duration: 1, stagger: 0.1, delay: delayOffset + 0.2 },
           0,
         );
     }, rootRef);
 
     return () => context.revert();
-  }, []);
+  }, [isInitialLoad]);
 
   const scrollToSection = (id: NavSection) => {
     const section = document.getElementById(id);

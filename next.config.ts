@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   trailingSlash: true,
   images: {
+    unoptimized: true,
     /* Enable Next.js image optimization (was previously disabled).
        This enables automatic format conversion (WebP/AVIF), resizing,
        and lazy loading — critical for LCP and page weight. */

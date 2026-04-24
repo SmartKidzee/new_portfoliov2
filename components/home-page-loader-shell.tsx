@@ -69,22 +69,37 @@ export function HomePageLoaderShell({
   skillCategories,
 }: HomePageLoaderShellProps) {
   const [showLoader, setShowLoader] = useState(true);
+  const [mountShell, setMountShell] = useState(false);
+  const [wasLoaderPlayed, setWasLoaderPlayed] = useState(false);
 
   useIsomorphicLayoutEffect(() => {
     if (!shouldPlayHomeLoader()) {
       setShowLoader(false);
+      setMountShell(true);
+    } else {
+      setWasLoaderPlayed(true);
     }
   }, []);
 
   useEffect(() => {
     if (!showLoader) {
+      setMountShell(true);
       return;
     }
+
+    // Delay mounting the heavy portfolio shell so it doesn't block the main
+    // thread while the GSAP text stagger animation is playing.
+    // We mount it at exactly 1200ms because the text finishes at ~1140ms,
+    // and the bars start sliding at 1640ms. This hides the mount lag in the dead zone!
+    const timer = setTimeout(() => {
+      setMountShell(true);
+    }, 1200);
 
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
 
     return () => {
+      clearTimeout(timer);
       document.body.style.overflow = previousOverflow;
     };
   }, [showLoader]);
@@ -99,7 +114,14 @@ export function HomePageLoaderShell({
         className={cn(showLoader ? "pointer-events-none select-none" : "pointer-events-auto")}
         aria-hidden={showLoader}
       >
-        <PortfolioShell content={content} latestPosts={latestPosts} skillCategories={skillCategories} />
+        {mountShell ? (
+          <PortfolioShell 
+            content={content} 
+            latestPosts={latestPosts} 
+            skillCategories={skillCategories} 
+            isInitialLoad={wasLoaderPlayed}
+          />
+        ) : null}
       </div>
 
       {showLoader ? (
