@@ -4,7 +4,9 @@
 
 <br>
 
-[![logo](https://raw.githubusercontent.com/SmartKidzee/new_portfoliov2/main/public/logo.png)](https://shreyas.cloud)
+<a href="https://shreyas.cloud">
+  <img src="https://raw.githubusercontent.com/SmartKidzee/new_portfoliov2/main/public/logo.png" alt="Shreyas J Logo" width="90" />
+</a>
 
 <br>
 
