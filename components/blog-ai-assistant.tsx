@@ -374,7 +374,13 @@ export function BlogAiAssistant({
           contentSignature,
         }),
       });
-      const payload = (await response.json()) as { error?: string; summary?: BlogAiSummary };
+
+      let payload: any;
+      try {
+        payload = await response.json();
+      } catch (parseError) {
+        throw new Error(`Connection issue (${response.status}). Please try again.`);
+      }
 
       if (!response.ok || !payload.summary) {
         throw new Error(payload.error || "Unable to generate summary right now.");
@@ -432,10 +438,12 @@ export function BlogAiAssistant({
         }),
       });
 
-      const payload = (await response.json()) as {
-        error?: string;
-        chat?: { message: string; suggestedReplies: string[] };
-      };
+      let payload: any;
+      try {
+        payload = await response.json();
+      } catch (parseError) {
+        throw new Error(`Connection issue (${response.status}). Please try again.`);
+      }
 
       if (!response.ok || !payload.chat) {
         throw new Error(payload.error || "Unable to answer right now.");
@@ -577,7 +585,6 @@ export function BlogAiAssistant({
                         <AssistantBubble
                           content={message.content}
                           animate={index === messages.length - 1 && isAssistantTyping}
-                          onProgress={() => scrollConversationToBottom("auto")}
                           onComplete={() => setIsAssistantTyping(false)}
                         />
                       ) : (
@@ -596,6 +603,8 @@ export function BlogAiAssistant({
                   Thinking...
                 </div>
               ) : null}
+
+              <div ref={mobileBottomRef} />
 
               {shouldShowPromptChips ? (
                 <div className="mt-4 rounded-[22px] border border-white/10 bg-black/20 p-4">
@@ -623,8 +632,6 @@ export function BlogAiAssistant({
                   {error}
                 </div>
               ) : null}
-
-              <div ref={mobileBottomRef} />
             </div>
           </div>
         </div>
@@ -729,7 +736,7 @@ export function BlogAiAssistant({
                           </div>
                           <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/20 px-3 py-1.5 text-xs text-muted">
                             <Bot className="h-3.5 w-3.5" />
-                            Cached
+                            AI Assistant
                           </div>
                         </div>
 
@@ -775,7 +782,6 @@ export function BlogAiAssistant({
                             <AssistantBubble
                               content={message.content}
                               animate={index === messages.length - 1 && isAssistantTyping}
-                              onProgress={() => scrollConversationToBottom("auto")}
                               onComplete={() => setIsAssistantTyping(false)}
                             />
                           ) : (
@@ -794,6 +800,8 @@ export function BlogAiAssistant({
                       Thinking...
                     </div>
                   ) : null}
+
+                  <div ref={desktopBottomRef} />
 
                   {shouldShowPromptChips ? (
                     <div className="rounded-[24px] border border-white/10 bg-white/[0.03] p-5">
@@ -819,8 +827,6 @@ export function BlogAiAssistant({
                       {error}
                     </div>
                   ) : null}
-
-                  <div ref={desktopBottomRef} />
                 </div>
               </div>
             </div>

@@ -4,7 +4,7 @@ import nodemailer from "nodemailer";
 const HUNTER_VERIFY_URL = "https://api.hunter.io/v2/email-verifier";
 const WEB3FORMS_SUBMIT_URL = "https://api.web3forms.com/submit";
 const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
-const RATE_LIMIT_MAX_REQUESTS = 5;
+const RATE_LIMIT_MAX_REQUESTS = 15;
 const MESSAGE_MAX_LENGTH = 4000;
 const BRAND_NAME = "shreyas.cloud";
 const BRAND_DOMAIN = "shreyas.cloud";

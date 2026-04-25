@@ -900,24 +900,10 @@ export function PortfolioShell({ content, latestPosts, skillCategories, isInitia
 
           <div className="relative z-10 mx-auto max-w-[1200px] px-6 md:px-10 lg:px-16">
             <SectionHeading
-              eyebrow="Skills"
-              title="Skill"
-              emphasis="showcase"
-              description="Filtered skills with original icons, clear progress, and a clean responsive layout."
-              action={
-                <LiquidMetalLink
-                  href={content.contact.socialLinks.find((link) => link.label === "GitHub")?.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="hidden md:inline-flex"
-                  size="sm"
-                  borderWidth={2}
-                  metalConfig={defaultMetalConfig}
-                  icon={<ArrowRight className="h-4 w-4" />}
-                >
-                  View GitHub
-                </LiquidMetalLink>
-              }
+              eyebrow="Capabilities"
+              title="My"
+              emphasis="Capabilities"
+              description="A comprehensive overview of my technical expertise, creative tools, and strategic methodologies developed over years of shipping products in the AI-first era."
             />
             <SkillsShowcaseSection skillCategories={skillCategories} />
           </div>
@@ -1199,6 +1185,7 @@ export function PortfolioShell({ content, latestPosts, skillCategories, isInitia
                           name={field.name}
                           rows={field.rows ?? 5}
                           placeholder={field.placeholder}
+                          maxLength={4000}
                           onChange={() => setFormErrors((prev) => ({ ...prev, [field.name]: "" }))}
                           className={`min-h-[140px] rounded-[24px] border bg-black/35 px-5 py-4 text-sm text-text-primary outline-hidden transition ${
                             error ? "border-rose-500/50 focus:border-rose-400" : "border-white/10 focus:border-[#89AACC]"
@@ -1262,20 +1249,24 @@ export function PortfolioShell({ content, latestPosts, skillCategories, isInitia
 
             <div className="mt-12 flex flex-col gap-6 border-t border-white/10 pt-6 md:flex-row md:items-center md:justify-between">
               <div className="flex flex-wrap items-center gap-4">
-                {content.contact.socialLinks.map((link: SocialLink) => {
+                {content.contact.socialLinks.map((link: SocialLink, i: number) => {
                   const Icon = socialIconMap(link.label);
 
                   return (
-                    <a
+                    <motion.a
                       key={link.label}
                       href={link.url}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-2 text-sm text-muted transition hover:text-text-primary"
+                      className="group inline-flex items-center gap-2 rounded-full border border-white/5 bg-white/5 px-4 py-2 text-sm text-muted backdrop-blur-md transition-all duration-300 hover:border-white/20 hover:bg-white/10 hover:text-white"
+                      animate={{ y: [0, -4, 0] }}
+                      transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: i * 0.3 }}
+                      whileHover={{ scale: 1.05, y: -2 }}
+                      whileTap={{ scale: 0.95 }}
                     >
-                      <Icon className="h-4 w-4" />
+                      <Icon className="h-[18px] w-[18px] transition-transform duration-300 group-hover:scale-110" />
                       {link.label}
-                    </a>
+                    </motion.a>
                   );
                 })}
               </div>

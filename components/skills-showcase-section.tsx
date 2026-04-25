@@ -18,6 +18,8 @@ import {
   FaServer,
   FaSquareRootVariable,
   FaWandMagicSparkles,
+  FaChevronLeft,
+  FaChevronRight,
 } from "react-icons/fa6";
 import {
   SiAnthropic,
@@ -162,7 +164,7 @@ function CircularSkillProgress({
               }
         }
       >
-        <SkillLogo iconKey={iconKey} className={styles.ringIcon} />
+        <span className="text-[10px] font-bold tracking-wider text-white/90">{progress}%</span>
       </motion.div>
     </div>
   );
@@ -204,6 +206,21 @@ function AnimatedProgressValue({
   return <span className={className}>{displayProgress}%</span>;
 }
 
+function HorizontalSkillProgress({ progress, delay = 0 }: { progress: number; delay?: number }) {
+  const shouldReduceMotion = useReducedMotion();
+  return (
+    <div className={styles.horizontalBarWrap}>
+      <div className={styles.horizontalBarTrack} />
+      <motion.div
+        className={styles.horizontalBarFill}
+        initial={{ width: shouldReduceMotion ? `${progress}%` : "0%" }}
+        animate={{ width: `${progress}%` }}
+        transition={shouldReduceMotion ? { duration: 0 } : { duration: 1.05, delay, ease: progressEase }}
+      />
+    </div>
+  );
+}
+
 export function SkillsShowcaseSection({ skillCategories }: SkillsShowcaseSectionProps) {
   const [activeCategoryId, setActiveCategoryId] = useState(skillCategories[0]?.id ?? "");
   const activeCategory = useMemo(
@@ -243,6 +260,35 @@ export function SkillsShowcaseSection({ skillCategories }: SkillsShowcaseSection
     [activeCategory],
   );
 
+  const [currentSkillPage, setCurrentSkillPage] = useState(0);
+
+  useEffect(() => {
+    setCurrentSkillPage(0);
+  }, [activeCategoryId]);
+
+  const chunkedSkills = useMemo(() => {
+    const chunks = [];
+    for (let i = 0; i < sortedSkills.length; i += 5) {
+      chunks.push(sortedSkills.slice(i, i + 5));
+    }
+    return chunks;
+  }, [sortedSkills]);
+
+  const maxPage = Math.max(0, chunkedSkills.length - 1);
+
+  const paginate = (direction: number) => {
+    setCurrentSkillPage((prev) => Math.max(0, Math.min(prev + direction, maxPage)));
+  };
+
+  const handleDragEnd = (_: MouseEvent | TouchEvent | PointerEvent, info: { offset: { x: number }; velocity: { x: number } }) => {
+    const threshold = 50;
+    if (info.offset.x > threshold || info.velocity.x > 500) {
+      paginate(-1);
+    } else if (info.offset.x < -threshold || info.velocity.x < -500) {
+      paginate(1);
+    }
+  };
+
   return (
     <div className={styles.shell}>
       <div className={styles.categoryRail} role="tablist" aria-label="Skill categories">
@@ -255,30 +301,29 @@ export function SkillsShowcaseSection({ skillCategories }: SkillsShowcaseSection
               type="button"
               role="tab"
               aria-selected={isActive}
+              borderWidth={1}
               className="w-full"
-              size="sm"
-              borderWidth={2}
+              labelClassName="w-full"
               metalConfig={
                 isActive
                   ? {
-                      colorBack: "#8eafd1",
-                      colorTint: "#ffffff",
-                      speed: 0.32,
-                      repetition: 5,
-                      distortion: 0.14,
-                      scale: 1,
-                    }
-                  : {
-                      colorBack: "#637a92",
-                      colorTint: "#eef7ff",
-                      speed: 0.28,
+                      colorBack: "#1a2c42",
+                      colorTint: "#2b4b7c",
+                      speed: 0.25,
                       repetition: 4,
                       distortion: 0.1,
                       scale: 1,
                     }
+                  : {
+                      colorBack: "#030509",
+                      colorTint: "#05070d",
+                      speed: 0.1,
+                      repetition: 2,
+                      distortion: 0.05,
+                      scale: 1,
+                    }
               }
               innerClassName={`${styles.categoryPill} ${isActive ? styles.categoryPillActive : ""}`}
-              labelClassName="w-full"
               onClick={() => setActiveCategoryId(category.id)}
             >
               <span className="flex w-full items-center justify-between gap-4">
@@ -300,28 +345,23 @@ export function SkillsShowcaseSection({ skillCategories }: SkillsShowcaseSection
         >
           <div className={styles.detailHeader}>
             <div>
-              <span className={styles.detailEyebrow}>{activeCategory?.label}</span>
-              <h3 className={styles.detailTitle}>{activeCategory?.title}</h3>
+              <span className="flex items-center gap-2 text-[10px] tracking-[0.24em] uppercase text-white/50 mb-4 font-semibold">
+                <FaWandMagicSparkles className="h-3 w-3" /> CATEGORY
+              </span>
             </div>
-            <AnimatedProgressValue
-              className={styles.detailScore}
-              progress={activeSkill?.progress ?? activeCategory?.progress ?? 0}
-              delay={0.08}
+            <CircularSkillProgress
+              iconKey={activeSkill?.iconKey ?? "code-2"}
+              progress={activeCategory?.progress ?? 0}
+              delay={0.04}
             />
           </div>
 
           <div className={styles.detailBody}>
-            <CircularSkillProgress
-              iconKey={activeSkill?.iconKey ?? "code-2"}
-              progress={activeSkill?.progress ?? activeCategory?.progress ?? 0}
-              delay={0.04}
-            />
             <div className={styles.detailCopy}>
-              <h4 className={styles.selectedSkillTitle}>{activeSkill?.label ?? activeCategory?.title}</h4>
-              <p className={styles.selectedSkillSummary}>{activeSkill?.summary ?? activeCategory?.description}</p>
+              <h3 className={styles.detailTitle}>{activeCategory?.title}</h3>
+              <p className={styles.selectedSkillSummary}>{activeCategory?.description}</p>
               <div className={styles.detailMeta}>
                 <span className={styles.detailMetaChip}>{activeCategory?.skills.length ?? 0} skills</span>
-                <span className={styles.detailMetaChip}>{activeCategory?.progress ?? 0}% avg</span>
               </div>
             </div>
           </div>
@@ -336,37 +376,76 @@ export function SkillsShowcaseSection({ skillCategories }: SkillsShowcaseSection
         >
           <div className={styles.gridHeader}>
             <span className={styles.gridLabel}>{activeCategory?.title}</span>
-            <span className={styles.gridCount}>{sortedSkills.length}</span>
+            <div className="flex items-center gap-2">
+              <span className={styles.gridCount}>{sortedSkills.length}</span>
+              {maxPage > 0 && (
+                <div className="flex items-center gap-1 ml-2">
+                  <button 
+                    onClick={() => paginate(-1)} 
+                    disabled={currentSkillPage === 0} 
+                    className="flex h-7 w-7 items-center justify-center rounded-full border border-white/10 bg-white/5 transition hover:bg-white/10 disabled:opacity-30 disabled:hover:bg-white/5"
+                    aria-label="Previous skills"
+                  >
+                    <FaChevronLeft className="h-3 w-3 text-white/70" />
+                  </button>
+                  <button 
+                    onClick={() => paginate(1)} 
+                    disabled={currentSkillPage === maxPage} 
+                    className="flex h-7 w-7 items-center justify-center rounded-full border border-white/10 bg-white/5 transition hover:bg-white/10 disabled:opacity-30 disabled:hover:bg-white/5"
+                    aria-label="Next skills"
+                  >
+                    <FaChevronRight className="h-3 w-3 text-white/70" />
+                  </button>
+                </div>
+              )}
+            </div>
           </div>
 
-          <div className={styles.skillsGrid}>
-            {sortedSkills.map((skill, index) => {
-              const isActive = skill.slug === activeSkill?.slug;
-              const delay = index * 0.05;
+          <div className="relative overflow-hidden mt-4">
+            <motion.div
+              className="flex"
+              animate={{ x: `-${currentSkillPage * 100}%` }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={0.2}
+              onDragEnd={handleDragEnd}
+            >
+              {chunkedSkills.map((chunk, pageIndex) => (
+                <div key={pageIndex} className={`w-full shrink-0 flex flex-col gap-4 px-1 ${pageIndex !== currentSkillPage ? 'pointer-events-none' : ''}`}>
+                  {chunk.map((skill, index) => {
+                    const isActive = skill.slug === activeSkill?.slug;
+                    const delay = index * 0.05;
 
-              return (
-                <button
-                  key={skill.slug}
-                  type="button"
-                  className={`${styles.skillCard} ${isActive ? styles.skillCardActive : ""}`}
-                  onClick={() => setActiveSkillSlug(skill.slug)}
-                  title={skill.summary}
-                  aria-label={`${skill.label}, ${skill.progress}%`}
-                >
-                  <div className={styles.skillTopRow}>
-                    <CircularSkillProgress iconKey={skill.iconKey} progress={skill.progress} delay={delay} />
-                    <AnimatedProgressValue className={styles.skillValue} progress={skill.progress} delay={delay} />
-                  </div>
-                  <div className={styles.skillBody}>
-                    <h4 className={styles.skillTitle}>{skill.label}</h4>
-                    <p className={styles.skillSummary}>{skill.summary}</p>
-                  </div>
-                  <span className={styles.skillTooltip} role="tooltip">
-                    {skill.summary}
-                  </span>
-                </button>
-              );
-            })}
+                    return (
+                      <button
+                        key={skill.slug}
+                        type="button"
+                        className={`${styles.skillCard} ${isActive ? styles.skillCardActive : ""}`}
+                        onClick={() => setActiveSkillSlug(skill.slug)}
+                        title={skill.summary}
+                        aria-label={`${skill.label}, ${skill.progress}%`}
+                      >
+                        <div className={styles.skillTopRow}>
+                          <div className="flex items-center justify-center h-10 w-10 rounded-full bg-white/5 border border-white/10">
+                            <SkillLogo iconKey={skill.iconKey} className="h-4 w-4 text-white/70" />
+                          </div>
+                        </div>
+                        <div className={styles.skillBody}>
+                          <div className="flex justify-between items-center mb-2">
+                            <h4 className={styles.skillTitle} style={{ marginBottom: 0 }}>
+                              {skill.label}
+                            </h4>
+                            <span className="text-[11px] font-bold tracking-wider text-white/70">{skill.progress}%</span>
+                          </div>
+                          <HorizontalSkillProgress progress={skill.progress} delay={delay} />
+                        </div>
+                      </button>
+                    );
+                  })}
+                </div>
+              ))}
+            </motion.div>
           </div>
         </motion.div>
       </div>

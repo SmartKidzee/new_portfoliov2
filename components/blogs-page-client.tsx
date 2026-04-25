@@ -111,10 +111,10 @@ export function BlogsPageClient({ posts }: BlogsPageClientProps) {
           </div>
 
           <div className="max-w-3xl">
-            <p className="text-xs uppercase tracking-[0.3em] text-muted">Live Journal</p>
-            <h1 className="mt-5 font-display text-5xl italic leading-none md:text-7xl">Blogs</h1>
+            <p className="text-xs uppercase tracking-[0.3em] text-muted">Insights & Reflections</p>
+            <h1 className="mt-5 font-display text-5xl italic leading-none md:text-7xl">Thoughts & Writings</h1>
             <p className="mt-6 max-w-2xl text-sm leading-7 text-muted md:text-base">
-              Every post here is loaded straight from Supabase, so newly added articles can show up without a JSON sync pass.
+              A curated collection of my thoughts, learnings, and experiences navigating software engineering, design, and continuous growth.
             </p>
           </div>
         </div>

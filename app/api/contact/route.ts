@@ -33,9 +33,11 @@ export async function POST(request: Request) {
     validateContactSubmission(submission);
     await verifyEmailDeliverability(submission.email);
 
-    await insertContactRecord(submission);
-    await sendOwnerNotification(submission);
-    await sendAutoReply(submission);
+    await Promise.allSettled([
+      insertContactRecord(submission),
+      sendOwnerNotification(submission),
+      sendAutoReply(submission),
+    ]);
 
     return NextResponse.json({
       success: true,
@@ -50,7 +52,9 @@ export async function POST(request: Request) {
     }
 
     if (
-      normalizedMessage.includes("please enter")
+      normalizedMessage.includes("please enter") ||
+      normalizedMessage.includes("invalid") ||
+      normalizedMessage.includes("failed")
     ) {
       return NextResponse.json({ error: message }, { status: 400 });
     }
@@ -72,7 +76,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json(
       {
-        error: "Unable to send your message right now. Please try again shortly.",
+        error: message || "Unable to send your message right now. Please try again shortly.",
       },
       { status: 500 },
     );

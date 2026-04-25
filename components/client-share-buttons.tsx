@@ -8,6 +8,6 @@ interface ClientShareButtonsProps {
 }
 
 export function ClientShareButtons({ title, blogId }: ClientShareButtonsProps) {
-  const url = typeof window !== "undefined" ? window.location.href : "";
+  const url = typeof window !== "undefined" ? `${window.location.origin}/blogs/${blogId}` : `https://shreyas.cloud/blogs/${blogId}`;
   return <ShareButtons title={title} url={url} />;
 }
