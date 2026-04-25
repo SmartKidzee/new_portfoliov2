@@ -26,8 +26,8 @@ function MarqueeRow({
   reverse?: boolean;
   durationSec?: number;
 }) {
-  /* Render 4 copies so there's always enough content to fill the viewport */
-  const repeated = [...items, ...items, ...items, ...items];
+  /* Render 3 copies so there's always enough content to fill the viewport */
+  const repeated = [...items, ...items, ...items];
 
   return (
     <div className="testimonial-marquee-wrap">

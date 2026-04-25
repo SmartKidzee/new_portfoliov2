@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   icons: {
     icon: [{ url: "/icon.ico", sizes: "any" }],
     shortcut: "/icon.ico",
-    apple: "/logo.png",
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
   },
   openGraph: {
     title: homePageTitle,
@@ -96,6 +96,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" data-scroll-behavior="smooth" className={cn("font-sans", geist.variable)} suppressHydrationWarning>
+      <head>
+        {/* Preconnect to critical third-party origins for faster resource loading */}
+        <link rel="preconnect" href="https://ebxdddejgcqfxcjfgokn.supabase.co" />
+        <link rel="preconnect" href="https://stream.mux.com" />
+        <link rel="preconnect" href="https://cloud.umami.is" />
+        <link rel="dns-prefetch" href="https://ebxdddejgcqfxcjfgokn.supabase.co" />
+        <link rel="dns-prefetch" href="https://stream.mux.com" />
+        <link rel="dns-prefetch" href="https://cloud.umami.is" />
+      </head>
       <body
         suppressHydrationWarning
         className={`${inter.variable} ${instrumentSerif.variable} bg-bg font-body text-text-primary antialiased`}

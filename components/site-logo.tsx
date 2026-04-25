@@ -18,7 +18,7 @@ export function SiteLogo({ className, imageClassName, priority = false }: SiteLo
     >
       <div className="absolute inset-0 accent-gradient opacity-20" />
       <Image
-        src="/logo.png"
+        src="/logo.webp"
         alt="Shreyas logo"
         fill
         priority={priority}

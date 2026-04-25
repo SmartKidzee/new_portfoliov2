@@ -18,7 +18,7 @@ export default async function HomePage() {
         jobTitle: "AI Systems & Full-Stack Builder",
         description: portfolioContent.metadata.description,
         url: portfolioContent.metadata.canonicalUrl,
-        image: `${portfolioContent.metadata.canonicalUrl}/hero_image.png`,
+        image: `${portfolioContent.metadata.canonicalUrl}/hero_image.webp`,
         sameAs: portfolioContent.metadata.personStructuredData.sameAsLinks,
         knowsAbout: [
           "Artificial Intelligence",

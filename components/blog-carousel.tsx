@@ -182,7 +182,7 @@ export function BlogCarousel({ posts }: BlogCarouselProps) {
                           {post.tags.slice(0, 3).map((tag) => (
                             <span
                               key={tag}
-                              className="rounded-full bg-white/5 px-2 py-0.5 text-[10px] uppercase tracking-wider text-muted/80"
+                              className="rounded-full bg-white/5 px-2 py-0.5 text-[10px] uppercase tracking-wider text-white/60"
                             >
                               {tag}
                             </span>
@@ -220,18 +220,22 @@ export function BlogCarousel({ posts }: BlogCarouselProps) {
 
       {/* Progress dots */}
       {maxIndex > 0 && (
-        <div className="mt-4 flex justify-center gap-2">
+        <div className="mt-4 flex justify-center gap-1">
           {Array.from({ length: maxIndex + 1 }).map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentIndex(index)}
-              className={`h-1.5 rounded-full transition-all duration-300 ${
-                index === currentIndex
-                  ? "w-6 bg-[#89AACC]"
-                  : "w-1.5 bg-white/20 hover:bg-white/40"
-              }`}
+              className="flex items-center justify-center p-3"
               aria-label={`Go to slide ${index + 1}`}
-            />
+            >
+              <span
+                className={`block h-1.5 rounded-full transition-all duration-300 ${
+                  index === currentIndex
+                    ? "w-6 bg-[#89AACC]"
+                    : "w-1.5 bg-white/20"
+                }`}
+              />
+            </button>
           ))}
         </div>
       )}

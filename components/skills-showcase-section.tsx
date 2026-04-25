@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, useCallback } from "react";
 import { animate, motion, useReducedMotion } from "framer-motion";
 import type { IconType } from "react-icons";
 import {
@@ -229,6 +229,27 @@ export function SkillsShowcaseSection({ skillCategories }: SkillsShowcaseSection
   );
   const [activeSkillSlug, setActiveSkillSlug] = useState(getTopSkill(activeCategory)?.slug ?? "");
 
+  /* ── Category rail scroll management ── */
+  const categoryRailRef = useRef<HTMLDivElement>(null);
+  const activeCategoryIndex = skillCategories.findIndex((c) => c.id === activeCategoryId);
+
+  // Scroll active category pill into view on mobile
+  const scrollCategoryIntoView = useCallback((index: number) => {
+    const rail = categoryRailRef.current;
+    if (!rail) return;
+    const children = rail.children;
+    if (!children[index]) return;
+    const child = children[index] as HTMLElement;
+    const railRect = rail.getBoundingClientRect();
+    const childRect = child.getBoundingClientRect();
+    const scrollLeft = child.offsetLeft - rail.offsetLeft - (railRect.width / 2) + (childRect.width / 2);
+    rail.scrollTo({ left: Math.max(0, scrollLeft), behavior: "smooth" });
+  }, []);
+
+  useEffect(() => {
+    scrollCategoryIntoView(activeCategoryIndex);
+  }, [activeCategoryIndex, scrollCategoryIntoView]);
+
   useEffect(() => {
     const fallbackCategoryId = skillCategories[0]?.id ?? "";
     const nextCategoryId = skillCategories.some((category) => category.id === activeCategoryId)
@@ -291,48 +312,70 @@ export function SkillsShowcaseSection({ skillCategories }: SkillsShowcaseSection
 
   return (
     <div className={styles.shell}>
-      <div className={styles.categoryRail} role="tablist" aria-label="Skill categories">
-        {skillCategories.map((category) => {
-          const isActive = category.id === activeCategory?.id;
+      {/* Category rail — horizontal swipeable on mobile, vertical on desktop */}
+      <div className={styles.categoryRailWrap}>
+        {/* Mobile edge fades */}
+        <div className={styles.categoryFadeLeft} />
+        <div className={styles.categoryFadeRight} />
+        <div
+          ref={categoryRailRef}
+          className={styles.categoryRail}
+          role="tablist"
+          aria-label="Skill categories"
+        >
+          {skillCategories.map((category) => {
+            const isActive = category.id === activeCategory?.id;
 
-          return (
-            <LiquidMetalButton
+            return (
+              <LiquidMetalButton
+                key={category.id}
+                type="button"
+                role="tab"
+                aria-selected={isActive}
+                borderWidth={1}
+                className={styles.categoryBtn}
+                labelClassName="w-full"
+                metalConfig={
+                  isActive
+                    ? {
+                        colorBack: "#1a2c42",
+                        colorTint: "#2b4b7c",
+                        speed: 0.25,
+                        repetition: 4,
+                        distortion: 0.1,
+                        scale: 1,
+                      }
+                    : {
+                        colorBack: "#030509",
+                        colorTint: "#05070d",
+                        speed: 0.1,
+                        repetition: 2,
+                        distortion: 0.05,
+                        scale: 1,
+                      }
+                }
+                innerClassName={`${styles.categoryPill} ${isActive ? styles.categoryPillActive : ""}`}
+                onClick={() => setActiveCategoryId(category.id)}
+              >
+                <span className="flex w-full items-center justify-between gap-4">
+                  <span className={styles.categoryTitle}>{category.title}</span>
+                  <span className={styles.categoryProgress}>{category.progress}%</span>
+                </span>
+              </LiquidMetalButton>
+            );
+          })}
+        </div>
+        {/* Mobile scroll indicator dots */}
+        <div className={styles.categoryDots}>
+          {skillCategories.map((category, idx) => (
+            <button
               key={category.id}
-              type="button"
-              role="tab"
-              aria-selected={isActive}
-              borderWidth={1}
-              className="w-full"
-              labelClassName="w-full"
-              metalConfig={
-                isActive
-                  ? {
-                      colorBack: "#1a2c42",
-                      colorTint: "#2b4b7c",
-                      speed: 0.25,
-                      repetition: 4,
-                      distortion: 0.1,
-                      scale: 1,
-                    }
-                  : {
-                      colorBack: "#030509",
-                      colorTint: "#05070d",
-                      speed: 0.1,
-                      repetition: 2,
-                      distortion: 0.05,
-                      scale: 1,
-                    }
-              }
-              innerClassName={`${styles.categoryPill} ${isActive ? styles.categoryPillActive : ""}`}
+              className={`${styles.categoryDot} ${idx === activeCategoryIndex ? styles.categoryDotActive : ""}`}
               onClick={() => setActiveCategoryId(category.id)}
-            >
-              <span className="flex w-full items-center justify-between gap-4">
-                <span className={styles.categoryTitle}>{category.title}</span>
-                <span className={styles.categoryProgress}>{category.progress}%</span>
-              </span>
-            </LiquidMetalButton>
-          );
-        })}
+              aria-label={`Select ${category.title}`}
+            />
+          ))}
+        </div>
       </div>
 
       <div className={styles.layout}>
@@ -383,7 +426,7 @@ export function SkillsShowcaseSection({ skillCategories }: SkillsShowcaseSection
                   <button 
                     onClick={() => paginate(-1)} 
                     disabled={currentSkillPage === 0} 
-                    className="flex h-7 w-7 items-center justify-center rounded-full border border-white/10 bg-white/5 transition hover:bg-white/10 disabled:opacity-30 disabled:hover:bg-white/5"
+                    className="flex h-8 w-8 items-center justify-center rounded-full border border-white/10 bg-white/5 transition hover:bg-white/10 disabled:opacity-30 disabled:hover:bg-white/5"
                     aria-label="Previous skills"
                   >
                     <FaChevronLeft className="h-3 w-3 text-white/70" />
@@ -391,7 +434,7 @@ export function SkillsShowcaseSection({ skillCategories }: SkillsShowcaseSection
                   <button 
                     onClick={() => paginate(1)} 
                     disabled={currentSkillPage === maxPage} 
-                    className="flex h-7 w-7 items-center justify-center rounded-full border border-white/10 bg-white/5 transition hover:bg-white/10 disabled:opacity-30 disabled:hover:bg-white/5"
+                    className="flex h-8 w-8 items-center justify-center rounded-full border border-white/10 bg-white/5 transition hover:bg-white/10 disabled:opacity-30 disabled:hover:bg-white/5"
                     aria-label="Next skills"
                   >
                     <FaChevronRight className="h-3 w-3 text-white/70" />
@@ -447,6 +490,26 @@ export function SkillsShowcaseSection({ skillCategories }: SkillsShowcaseSection
               ))}
             </motion.div>
           </div>
+
+          {/* Page dots for skill pages */}
+          {maxPage > 0 && (
+            <div className="flex justify-center gap-1 mt-4">
+              {chunkedSkills.map((_, idx) => (
+                <button
+                  key={idx}
+                  className="flex items-center justify-center p-2"
+                  onClick={() => setCurrentSkillPage(idx)}
+                  aria-label={`Skills page ${idx + 1}`}
+                >
+                  <span
+                    className={`block h-1.5 rounded-full transition-all duration-300 ${
+                      idx === currentSkillPage ? "w-5 bg-[#89AACC]" : "w-1.5 bg-white/20"
+                    }`}
+                  />
+                </button>
+              ))}
+            </div>
+          )}
         </motion.div>
       </div>
     </div>

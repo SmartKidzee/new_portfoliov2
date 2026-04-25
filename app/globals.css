@@ -28,6 +28,17 @@ body {
   color: hsl(var(--text));
 }
 
+/* Performance: defer rendering of below-the-fold sections */
+#work,
+#skills,
+#timeline,
+#education,
+#testimonials,
+#contact {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 800px;
+}
+
 html::-webkit-scrollbar,
 body::-webkit-scrollbar {
   width: 14px;

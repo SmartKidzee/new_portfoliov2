@@ -1,8 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { AnimatedCounter } from "./animated-counter";
-import { BlogCarousel } from "./blog-carousel";
+import dynamic from "next/dynamic";
 import gsap from "gsap";
 import {
   AlertCircle,
@@ -22,15 +21,19 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
 import { HlsVideo } from "@/components/hls-video";
-import { SkillsShowcaseSection } from "@/components/skills-showcase-section";
 import { SiteLogo } from "@/components/site-logo";
 import { LiquidMetalButton, LiquidMetalLink } from "@/components/ui/liquid-metal";
-import { Timeline } from "@/components/ui/timeline";
-import { TestimonialsSection } from "@/components/testimonials-section";
 import { WarpBackground } from "@/components/ui/warp-background";
 import type { PortfolioContent } from "@/lib/content";
 import type { SkillShowcaseCategory } from "@/lib/skill-radar";
 import type { BlogPost } from "@/supabase/client";
+
+/* ── Dynamically imported below-the-fold components ── */
+const AnimatedCounter = dynamic(() => import("./animated-counter").then((m) => m.AnimatedCounter), { ssr: false });
+const BlogCarousel = dynamic(() => import("./blog-carousel").then((m) => m.BlogCarousel));
+const SkillsShowcaseSection = dynamic(() => import("@/components/skills-showcase-section").then((m) => m.SkillsShowcaseSection));
+const Timeline = dynamic(() => import("@/components/ui/timeline").then((m) => m.Timeline));
+const TestimonialsSection = dynamic(() => import("@/components/testimonials-section").then((m) => m.TestimonialsSection));
 
 type PortfolioShellProps = {
   content: PortfolioContent;
@@ -702,7 +705,7 @@ export function PortfolioShell({ content, latestPosts, skillCategories, isInitia
                     <div className="absolute inset-[2px] rounded-[34px] border border-white/10" />
                     <div className="relative aspect-[4/5] overflow-hidden rounded-[28px] border border-white/10 bg-[#07101a] sm:rounded-[30px]">
                       <Image
-                        src="/hero_image.png"
+                        src="/hero_image.webp"
                         alt={content.home.portrait.alt || profileName}
                         fill
                         priority
@@ -813,6 +816,7 @@ export function PortfolioShell({ content, latestPosts, skillCategories, isInitia
                         src={work.image}
                         alt={work.title}
                         fill
+                        loading="lazy"
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 58vw, 700px"
                         className="object-cover transition duration-500 group-hover:scale-105"
                       />
@@ -1080,7 +1084,7 @@ export function PortfolioShell({ content, latestPosts, skillCategories, isInitia
           <div className="relative z-10 overflow-hidden border-y border-white/10 py-4">
             <div className="whitespace-nowrap font-display text-4xl italic text-text-primary/80 md:text-6xl">
               <div className="animate-[marquee_40s_linear_infinite]">
-                {Array.from({ length: 10 }, () => "BUILDING THE FUTURE / ").join("")}
+                {Array.from({ length: 4 }, () => "BUILDING THE FUTURE / ").join("")}
               </div>
             </div>
           </div>

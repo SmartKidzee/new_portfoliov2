@@ -82,7 +82,7 @@ export function HlsVideo({ className, flipped = false }: HlsVideoProps) {
       muted
       loop
       playsInline
-      preload="auto"
+      preload="none"
       aria-hidden="true"
     />
   );
