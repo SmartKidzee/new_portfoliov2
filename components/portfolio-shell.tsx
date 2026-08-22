@@ -31,6 +31,7 @@ import type { BlogPost } from "@/supabase/client";
 /* ── Dynamically imported below-the-fold components ── */
 const AnimatedCounter = dynamic(() => import("./animated-counter").then((m) => m.AnimatedCounter), { ssr: false });
 const BlogCarousel = dynamic(() => import("./blog-carousel").then((m) => m.BlogCarousel));
+const LeetcodeSection = dynamic(() => import("@/components/leetcode-stats").then((m) => m.LeetcodeSection), { ssr: false });
 const SkillsShowcaseSection = dynamic(() => import("@/components/skills-showcase-section").then((m) => m.SkillsShowcaseSection));
 const Timeline = dynamic(() => import("@/components/ui/timeline").then((m) => m.Timeline));
 const TestimonialsSection = dynamic(() => import("@/components/testimonials-section").then((m) => m.TestimonialsSection));
@@ -705,10 +706,11 @@ export function PortfolioShell({ content, latestPosts, skillCategories, isInitia
                     <div className="absolute inset-[2px] rounded-[34px] border border-white/10" />
                     <div className="relative aspect-[4/5] overflow-hidden rounded-[28px] border border-white/10 bg-[#07101a] sm:rounded-[30px]">
                       <Image
-                        src="/hero_image.webp"
+                        src="/hero_image.png?v=3"
                         alt={content.home.portrait.alt || profileName}
                         fill
                         priority
+                        unoptimized
                         sizes="(max-width: 640px) 82vw, (max-width: 1024px) 46vw, 460px"
                         className="object-cover object-center"
                       />
@@ -778,6 +780,9 @@ export function PortfolioShell({ content, latestPosts, skillCategories, isInitia
             </div>
           </div>
         </section>
+
+        {/* LeetCode Activity Section */}
+        <LeetcodeSection username="SmartKidzee" />
 
         <section id="work" className="scroll-mt-28 bg-bg py-12 md:scroll-mt-32 md:py-16">
           <div className="mx-auto max-w-[1200px] px-6 md:px-10 lg:px-16">

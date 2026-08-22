@@ -84,7 +84,7 @@ const RevealLoader = ({
 
       const moveProps = getAnimationProperties(movementDirection);
       const staggerConfig = {
-        each: 0.1,
+        each: 0.045,
         from: getStaggerFrom(staggerOrder) as any,
       };
 
@@ -95,17 +95,17 @@ const RevealLoader = ({
       // 1. Reveal Text
       tl.to(".name-text span", {
         yPercent: 0,
-        stagger: 0.04,
-        duration: 0.9,
+        stagger: 0.032,
+        duration: 0.56,
         ease: "expo.out",
       });
 
       // 2. Animate Bars (The main structural animation)
-      // Increased delay to 1.2s to give the heavy PortfolioShell (mounted at 1.2s)
-      // over 1 full second to compile WebGL shaders without interrupting animations!
+      // Preserve every stage of the reveal (letter draw-in, brief hold, bar
+      // exit, and word fade) while tightening the whole timeline.
       tl.to(".preloader-item", {
-        delay: 1.2,
-        duration: 0.8,
+        delay: Math.max(textFadeDelay, 0.18),
+        duration: 0.52,
         stagger: staggerConfig,
         ...moveProps,
       })
@@ -114,13 +114,13 @@ const RevealLoader = ({
           autoAlpha: 0, 
           yPercent: -80, 
           scale: 0.95,
-          duration: 0.6, 
-          stagger: 0.02,
+          duration: 0.34,
+          stagger: 0.016,
           ease: "power2.out" 
-        }, `<0.1`)
+        }, `<0.22`)
 
         // 4. Hide Container
-        .to(preloaderRef.current, { autoAlpha: 0, duration: 0.1 }, "+=0.1");
+        .to(preloaderRef.current, { autoAlpha: 0, duration: 0.08 }, "+=0.04");
     },
     { scope: preloaderRef, dependencies: [staggerOrder, movementDirection, textFadeDelay] },
   );

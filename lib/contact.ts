@@ -427,10 +427,24 @@ function buildAutoReplyHtml(name: string) {
                 </a>
               </div>
               
-              <p style="margin:0;font-size:16px;line-height:1.7;color:#475569;" class="text-muted animated delay-3">
-                Talk soon,<br/>
-                <strong style="font-weight:600;color:#0F172A;font-size:17px;" class="text-primary font-serif">Shreyas</strong>
+              <p style="margin:0 0 12px;font-size:16px;line-height:1.7;color:#475569;" class="text-muted animated delay-3">
+                Talk soon,
               </p>
+
+              <!-- Personal Signature with Hero Avatar -->
+              <table role="presentation" cellpadding="0" cellspacing="0" style="border-collapse:collapse;" class="animated delay-3">
+                <tr>
+                  <td style="vertical-align:middle;padding-right:14px;">
+                    <a href="${BRAND_BASE_URL}" aria-label="Shreyas" style="text-decoration:none;">
+                      <img src="${BRAND_BASE_URL}/hero_image.png?v=3" alt="Shreyas" width="48" height="48" style="display:block;width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid rgba(137,170,204,0.4);" />
+                    </a>
+                  </td>
+                  <td style="vertical-align:middle;">
+                    <div style="font-size:16px;font-weight:600;color:#0F172A;" class="text-primary font-serif">Shreyas</div>
+                    <div style="font-size:13px;color:#64748B;line-height:1.4;" class="text-muted">AI Systems &amp; Full-Stack Builder &middot; <a href="${BRAND_BASE_URL}" style="color:#0EA5E9;text-decoration:none;">shreyas.cloud</a></div>
+                  </td>
+                </tr>
+              </table>
             </td>
           </tr>
           

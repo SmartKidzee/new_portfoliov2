@@ -89,11 +89,12 @@ export function HomePageLoaderShell({
 
     // Delay mounting the heavy portfolio shell so it doesn't block the main
     // thread while the GSAP text stagger animation is playing.
-    // We mount it at exactly 1200ms because the text finishes at ~1140ms,
-    // and the bars start sliding at 1640ms. This hides the mount lag in the dead zone!
+    // Start preparing the shell during the name reveal. The loader still owns
+    // the first frame, so visitors see a complete transition rather than a
+    // paused screen before the page appears.
     const timer = setTimeout(() => {
       setMountShell(true);
-    }, 1200);
+    }, 440);
 
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";

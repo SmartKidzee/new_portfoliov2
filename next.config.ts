@@ -52,12 +52,22 @@ const nextConfig: NextConfig = {
           },
         ],
       },
+
+      {
+        source: "/(hero_.*|logo.*|og-image.*|apple-touch-icon.*|icon.*)",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=3600, stale-while-revalidate=86400",
+          },
+        ],
+      },
       {
         source: "/(.*)\\.(webp|png|jpg|jpeg|avif|ico|svg)",
         headers: [
           {
             key: "Cache-Control",
-            value: "public, max-age=31536000, immutable",
+            value: "public, max-age=86400, stale-while-revalidate=604800",
           },
         ],
       },

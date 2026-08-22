@@ -4,6 +4,7 @@ import { ArrowLeft } from "lucide-react";
 import { notFound } from "next/navigation";
 
 import { BlogAiAssistant } from "@/components/blog-ai-assistant";
+import { BlogImageExpandHint, BlogImageLightbox } from "@/components/blog-image-lightbox";
 import { BlogPostHero } from "@/components/blog-post-hero";
 import { ClientShareButtons } from "@/components/client-share-buttons";
 import { LikeButton } from "@/components/like-button";
@@ -80,9 +81,22 @@ function extractAttribute(tag: string, attribute: string) {
 function createImageFigure(key: string, image: ParsedImage) {
   return (
     <figure key={key} className="h-full w-full">
-      <div className="h-full w-full overflow-hidden">
-        <img src={image.src} alt={image.alt} className="h-full w-full object-cover" loading="lazy" />
-      </div>
+      <button
+        type="button"
+        data-blog-image-trigger
+        data-blog-image-src={image.src}
+        data-blog-image-alt={image.alt}
+        aria-label={`Expand image${image.alt ? `: ${image.alt}` : ""}`}
+        className="group relative block h-full w-full cursor-zoom-in overflow-hidden rounded-2xl text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#89AACC]"
+      >
+        <img
+          src={image.src}
+          alt={image.alt}
+          className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.035]"
+          loading="lazy"
+        />
+        <BlogImageExpandHint />
+      </button>
       {image.alt ? (
         <figcaption className="mt-2 px-2 text-center text-xs text-muted">
           {parseInlineFormatting(image.alt)}
@@ -662,7 +676,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         />
 
         <div className="min-w-0">
-          <article className="mt-8 prose prose-invert prose-lg max-w-none">{contentElements}</article>
+          <BlogImageLightbox>
+            <article className="mt-8 prose prose-invert prose-lg max-w-none">{contentElements}</article>
+          </BlogImageLightbox>
 
           {post.video && (
             <div className="mt-10">

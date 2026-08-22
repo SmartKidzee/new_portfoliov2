@@ -89,8 +89,15 @@ export function BlogPostHero({ post, readTime }: BlogPostHeroProps) {
       {post.src ? (
         <section className="mx-auto max-w-[1000px] px-6 md:px-10">
           <div className="relative -mt-6 aspect-video overflow-hidden rounded-3xl border border-white/10 md:-mt-8">
-            <Image src={post.src} alt={post.title} fill className="object-cover" sizes="(max-width: 768px) 100vw, 1000px" priority />
-            <div className="absolute inset-0 bg-linear-to-t from-bg/60 via-transparent to-transparent" />
+            <Image
+              src={post.src}
+              alt={post.title}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 1000px"
+              priority
+            />
+            <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-bg/60 via-transparent to-transparent" />
           </div>
         </section>
       ) : null}

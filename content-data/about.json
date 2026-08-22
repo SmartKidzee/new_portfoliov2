@@ -29,8 +29,8 @@
       "This website is built with Vite, React, and TypeScript, designed for speed, flexibility, and a modern experience. It's a step up from my earlier HTML & CSS site, bringing interactive elements and animations to showcase my work more dynamically."
     ],
     "profileMedia": {
-      "src": "/about-me.JPEG",
-      "alt": "Tech",
+      "src": "/hero_image.webp",
+      "alt": "Shreyas",
       "variant": "tilted-card"
     }
   },

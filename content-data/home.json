@@ -30,7 +30,7 @@
     "intro": "I design and ship AI-first products with strong frontend craft, reliable backend integrations, and a builder mindset focused on real deployment.",
     "visionStatement": "CODE THAT SPEAKS YOUR VISION",
     "portrait": {
-      "src": "https://i.ibb.co/B55KFGh2/IMG-1106.jpg",
+      "src": "/hero_image.webp",
       "alt": "Shreyas",
       "loading": "eager"
     },
