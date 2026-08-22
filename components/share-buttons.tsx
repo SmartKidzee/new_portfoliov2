@@ -3,8 +3,7 @@
 import { motion } from "framer-motion";
 import { Check, Link2 } from "lucide-react";
 import { useState, type CSSProperties } from "react";
-import { FaFacebookF, FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
+import { FaFacebook, FaLinkedin, FaWhatsapp, FaXTwitter } from "react-icons/fa6";
 import type { IconType } from "react-icons";
 
 interface ShareButtonsProps {
@@ -38,14 +37,14 @@ const shareLinks: SharePlatform[] = [
   {
     name: "LinkedIn",
     color: "#0A66C2",
-    Icon: FaLinkedinIn,
-    getUrl: (title, url) =>
-      `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(url)}&title=${encodeURIComponent(title)}`,
+    Icon: FaLinkedin,
+    getUrl: (_title, url) =>
+      `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`,
   },
   {
     name: "Facebook",
     color: "#1877F2",
-    Icon: FaFacebookF,
+    Icon: FaFacebook,
     getUrl: (_title, url) => `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
   },
 ];

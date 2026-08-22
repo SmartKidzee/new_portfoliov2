@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ArrowLeft, ChevronDown, Mail, ShieldCheck } from "lucide-react";
 
 import { SiteLogo } from "@/components/site-logo";
 
@@ -38,89 +39,120 @@ export function LegalPage({
   canonicalPath,
 }: LegalPageProps) {
   return (
-    <main className="relative min-h-screen overflow-hidden bg-bg text-text-primary">
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(137,170,204,0.18),transparent_22%),radial-gradient(circle_at_82%_20%,rgba(78,133,191,0.16),transparent_24%),linear-gradient(180deg,rgba(6,9,15,0.97)_0%,rgba(4,6,12,1)_100%)]" />
-        <div className="grid-overlay absolute inset-0 opacity-20" />
-        <div className="absolute left-[-8%] top-10 h-56 w-56 rounded-full bg-[#173050] blur-3xl md:h-72 md:w-72" />
-        <div className="absolute bottom-0 right-[-8%] h-72 w-72 rounded-full bg-[#1a4f45] blur-3xl md:h-80 md:w-80" />
+    <div className="relative min-h-screen bg-[#04060a] font-sans text-text-primary antialiased selection:bg-[#89AACC]/30 selection:text-white">
+      {/* Subtle background glow */}
+      <div className="pointer-events-none fixed inset-0 overflow-hidden" aria-hidden="true">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_15%,rgba(137,170,204,0.12),transparent_30%),radial-gradient(circle_at_80%_25%,rgba(78,133,191,0.1),transparent_30%)]" />
+        <div className="grid-overlay absolute inset-0 opacity-15" />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-[1180px] px-4 py-4 sm:px-6 sm:py-6 md:px-10 md:py-8 lg:px-16">
-        <header className="flex min-w-0 flex-col gap-5 rounded-[24px] border border-white/10 bg-[#05070d]/88 p-4 shadow-[0_24px_80px_rgba(0,0,0,0.24)] sm:rounded-[28px] sm:p-5 md:flex-row md:items-center md:justify-between">
-          <Link href="/" className="inline-flex min-w-0 items-start gap-3 sm:items-center sm:gap-4">
-            <SiteLogo priority className="h-10 w-10 shrink-0 sm:h-12 sm:w-12" />
+      <div className="relative z-10 mx-auto max-w-[1140px] px-4 py-6 sm:px-6 sm:py-8 md:px-10 md:py-10">
+        {/* Navigation Header */}
+        <header className="flex min-w-0 flex-col gap-4 rounded-2xl border border-white/10 bg-[#070a12]/90 p-4 shadow-[0_16px_40px_rgba(0,0,0,0.3)] backdrop-blur-md sm:rounded-[24px] sm:p-5 md:flex-row md:items-center md:justify-between">
+          <Link href="/" className="group inline-flex min-w-0 items-center gap-3 transition-opacity hover:opacity-90">
+            <SiteLogo priority className="h-10 w-10 shrink-0 sm:h-11 sm:w-11" />
             <div className="min-w-0">
-              <p className="text-xs uppercase tracking-[0.2em] text-[#89AACC] sm:text-sm sm:tracking-[0.24em]">Shreyas J</p>
-              <p className="mt-1 text-sm leading-5 text-muted">Portfolio policies and legal information</p>
+              <p className="font-sans text-xs font-semibold uppercase tracking-[0.22em] text-[#89AACC] sm:text-sm">
+                Shreyas J
+              </p>
+              <p className="truncate font-sans text-xs text-muted sm:text-sm">Legal & Policies</p>
             </div>
           </Link>
 
-          <nav aria-label="Legal navigation" className="grid min-w-0 w-full grid-cols-2 gap-2 text-center text-[11px] text-muted sm:flex sm:w-auto sm:flex-wrap sm:gap-3 sm:text-sm">
+          <nav aria-label="Legal navigation" className="flex items-center gap-1 rounded-xl border border-white/10 bg-white/[0.03] p-1 font-sans text-xs sm:text-sm">
             <Link
               href="/"
-              className="min-w-0 rounded-2xl border border-white/10 px-2 py-2.5 leading-4 transition hover:border-white/20 hover:text-text-primary sm:rounded-full sm:px-4 sm:py-2"
+              className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg px-3 py-1.5 font-medium text-muted transition hover:bg-white/5 hover:text-text-primary sm:flex-none sm:rounded-full sm:px-4 sm:py-2"
             >
-              Home
+              <ArrowLeft className="h-3.5 w-3.5" />
+              <span>Home</span>
             </Link>
             <Link
               href="/privacy"
-              className={`min-w-0 rounded-2xl border px-2 py-2.5 leading-4 transition hover:text-text-primary sm:rounded-full sm:px-4 sm:py-2 ${
+              className={`flex-1 rounded-lg px-3 py-1.5 text-center font-medium transition sm:flex-none sm:rounded-full sm:px-4 sm:py-2 ${
                 canonicalPath === "/privacy"
-                  ? "border-[#89AACC]/35 bg-[#89AACC]/10 text-text-primary"
-                  : "border-white/10 hover:border-white/20"
+                  ? "border border-[#89AACC]/40 bg-[#89AACC]/20 text-[#89AACC]"
+                  : "border border-transparent text-muted hover:bg-white/5 hover:text-text-primary"
               }`}
             >
               Privacy Policy
             </Link>
             <Link
               href="/terms"
-              className={`col-span-2 min-w-0 rounded-2xl border px-2 py-2.5 leading-4 transition hover:text-text-primary sm:col-span-1 sm:rounded-full sm:px-4 sm:py-2 ${
+              className={`flex-1 rounded-lg px-3 py-1.5 text-center font-medium transition sm:flex-none sm:rounded-full sm:px-4 sm:py-2 ${
                 canonicalPath === "/terms"
-                  ? "border-[#89AACC]/35 bg-[#89AACC]/10 text-text-primary"
-                  : "border-white/10 hover:border-white/20"
+                  ? "border border-[#89AACC]/40 bg-[#89AACC]/20 text-[#89AACC]"
+                  : "border border-transparent text-muted hover:bg-white/5 hover:text-text-primary"
               }`}
             >
-              Terms & Conditions
+              Terms of Use
             </Link>
           </nav>
         </header>
 
-        <section className="mt-5 overflow-hidden rounded-[28px] border border-white/10 bg-[#05070d]/88 p-5 shadow-[0_28px_90px_rgba(0,0,0,0.26)] sm:mt-8 sm:rounded-[36px] sm:p-6 md:p-8 lg:p-10">
-          <p className="text-[11px] uppercase tracking-[0.24em] text-[#89AACC] sm:text-xs sm:tracking-[0.32em]">{badge}</p>
-          <h1 className="mt-4 max-w-4xl break-words text-[2rem] leading-[1.08] text-text-primary sm:text-4xl md:text-6xl">{title}</h1>
-          <p className="mt-5 max-w-3xl text-sm leading-8 text-muted md:text-base">{description}</p>
+        {/* Hero Section */}
+        <section className="mt-6 rounded-2xl border border-white/10 bg-[#070a12]/90 p-5 shadow-[0_20px_60px_rgba(0,0,0,0.3)] backdrop-blur-md sm:rounded-[28px] sm:p-7 md:p-8">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#89AACC]/30 bg-[#89AACC]/10 px-3.5 py-1 font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-[#89AACC]">
+            <ShieldCheck className="h-3.5 w-3.5" />
+            <span>{badge}</span>
+          </div>
 
-          <div className="mt-7 grid gap-3 sm:mt-8 sm:grid-cols-2 sm:gap-4 xl:grid-cols-4">
+          <h1 className="mt-4 break-words font-sans text-2xl font-bold tracking-tight text-white sm:text-3xl md:text-4xl lg:text-5xl">
+            {title}
+          </h1>
+
+          <p className="mt-4 max-w-3xl font-sans text-sm leading-relaxed text-muted sm:text-base sm:leading-7">
+            {description}
+          </p>
+
+          {/* Quick Facts Grid */}
+          <div className="mt-6 grid gap-2.5 sm:grid-cols-2 sm:gap-3 lg:grid-cols-4">
             {facts.map((fact) => (
               <div
                 key={fact.label}
-                className="min-w-0 rounded-[22px] border border-white/10 bg-white/[0.04] p-4 shadow-[0_14px_40px_rgba(0,0,0,0.18)] sm:rounded-[24px]"
+                className="min-w-0 rounded-xl border border-white/8 bg-white/[0.03] p-3.5 sm:rounded-2xl sm:p-4"
               >
-                <p className="text-[10px] uppercase tracking-[0.18em] text-muted sm:text-[11px] sm:tracking-[0.24em]">{fact.label}</p>
-                <p className="mt-3 break-words text-sm leading-6 text-text-primary">{fact.value}</p>
+                <p className="font-sans text-[10px] font-semibold uppercase tracking-[0.2em] text-[#89AACC] sm:text-[11px]">
+                  {fact.label}
+                </p>
+                <p className="mt-1.5 break-words font-sans text-xs font-medium leading-5 text-text-primary sm:text-sm sm:leading-6">
+                  {fact.value}
+                </p>
               </div>
             ))}
           </div>
 
-          <div className="mt-7 flex flex-col gap-1 text-sm leading-6 text-muted sm:mt-8 sm:flex-row sm:flex-wrap sm:gap-x-6 sm:gap-y-1">
-            <span>Effective date: {effectiveDate}</span>
-            <span>Last updated: {lastUpdated}</span>
+          {/* Dates metadata */}
+          <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-white/8 pt-4 font-sans text-xs text-muted sm:text-sm">
+            <span>
+              Effective date: <strong className="font-medium text-text-primary">{effectiveDate}</strong>
+            </span>
+            <span className="hidden text-white/20 sm:inline">•</span>
+            <span>
+              Last updated: <strong className="font-medium text-text-primary">{lastUpdated}</strong>
+            </span>
           </div>
         </section>
 
-        <section className="mt-5 grid gap-5 sm:mt-8 sm:gap-6 lg:grid-cols-[280px_minmax(0,1fr)]">
-          <details className="rounded-[26px] border border-white/10 bg-[#05070d]/88 p-5 shadow-[0_24px_72px_rgba(0,0,0,0.24)] open:border-[#89AACC]/25 lg:hidden">
-            <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-sm font-medium text-text-primary marker:content-none">
-              <span className="text-xs uppercase tracking-[0.26em] text-muted">On this page</span>
-              <span aria-hidden="true" className="text-lg text-[#89AACC]">+</span>
+        {/* Content Layout */}
+        <div className="mt-6 grid items-start gap-6 lg:grid-cols-[280px_minmax(0,1fr)]">
+          {/* Mobile Collapsible TOC */}
+          <details className="group rounded-2xl border border-white/10 bg-[#070a12]/90 p-4 shadow-[0_16px_40px_rgba(0,0,0,0.2)] open:border-[#89AACC]/30 lg:hidden">
+            <summary className="flex cursor-pointer list-none items-center justify-between gap-3 font-sans text-sm font-semibold text-text-primary select-none">
+              <span className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-[#89AACC]">
+                <span>Table of Contents</span>
+                <span className="rounded-full bg-white/10 px-2 py-0.5 text-[10px] text-muted">
+                  {sections.length}
+                </span>
+              </span>
+              <ChevronDown className="h-4 w-4 text-muted transition-transform duration-200 group-open:rotate-180" />
             </summary>
-            <div className="mt-4 grid gap-2 border-t border-white/8 pt-4">
+            <div className="mt-3.5 max-h-64 space-y-1.5 overflow-y-auto border-t border-white/8 pr-1 pt-3">
               {sections.map((section) => (
                 <a
                   key={section.id}
                   href={`#${section.id}`}
-                  className="rounded-[16px] border border-white/8 bg-white/[0.03] px-4 py-3 text-sm leading-6 text-text-primary transition hover:border-[#89AACC]/30 hover:bg-[#89AACC]/8"
+                  className="block rounded-xl border border-white/5 bg-white/[0.02] px-3.5 py-2 font-sans text-xs leading-5 text-muted transition hover:border-[#89AACC]/30 hover:bg-[#89AACC]/10 hover:text-text-primary sm:text-sm"
                 >
                   {section.title}
                 </a>
@@ -128,42 +160,48 @@ export function LegalPage({
             </div>
           </details>
 
-          <aside className="hidden self-start rounded-[30px] border border-white/10 bg-[#05070d]/88 p-6 shadow-[0_24px_72px_rgba(0,0,0,0.24)] lg:sticky lg:top-8 lg:block">
-            <p className="text-xs uppercase tracking-[0.3em] text-muted">On this page</p>
-            <div className="mt-5 space-y-3">
+          {/* Desktop Sticky TOC Sidebar */}
+          <aside className="sticky top-6 hidden max-h-[calc(100vh-3rem)] flex-col gap-4 overflow-y-auto rounded-[24px] border border-white/10 bg-[#070a12]/90 p-5 shadow-[0_20px_50px_rgba(0,0,0,0.3)] backdrop-blur-md lg:flex">
+            <p className="font-sans text-xs font-semibold uppercase tracking-[0.24em] text-[#89AACC]">On this page</p>
+            <nav className="space-y-1.5 pr-1">
               {sections.map((section) => (
                 <a
                   key={section.id}
                   href={`#${section.id}`}
-                  className="block rounded-[18px] border border-white/8 bg-white/[0.03] px-4 py-3 text-sm leading-6 text-text-primary transition hover:border-[#89AACC]/30 hover:bg-[#89AACC]/8"
+                  className="block rounded-xl border border-white/5 bg-white/[0.02] px-3 py-2 font-sans text-xs font-medium leading-5 text-muted transition hover:border-[#89AACC]/30 hover:bg-[#89AACC]/10 hover:text-text-primary"
                 >
                   {section.title}
                 </a>
               ))}
-            </div>
+            </nav>
 
-            <div className="mt-6 rounded-[22px] border border-white/8 bg-black/20 p-4">
-              <p className="text-[11px] uppercase tracking-[0.24em] text-[#89AACC]">Important</p>
-              <p className="mt-3 text-sm leading-7 text-muted">
-                This document describes how the website currently operates as of {lastUpdated}. If the site adds new
-                features, service providers, or tracking technologies, this page may be updated accordingly.
+            <div className="mt-2 rounded-xl border border-white/8 bg-black/40 p-3.5">
+              <p className="font-sans text-[10px] font-semibold uppercase tracking-[0.2em] text-[#89AACC]">Notice</p>
+              <p className="mt-1.5 font-sans text-xs leading-relaxed text-muted">
+                Applies as of {lastUpdated}. Subject to revisions for future features and integrations.
               </p>
             </div>
           </aside>
 
-          <div className="space-y-6">
+          {/* Main Sections Body */}
+          <main className="min-w-0 space-y-5">
             {sections.map((section) => (
               <article
                 key={section.id}
                 id={section.id}
-                className="min-w-0 rounded-[26px] border border-white/10 bg-[#05070d]/88 p-5 shadow-[0_24px_72px_rgba(0,0,0,0.24)] sm:rounded-[30px] sm:p-6 md:p-8"
+                className="scroll-mt-20 rounded-2xl border border-white/10 bg-[#070a12]/90 p-5 shadow-[0_16px_40px_rgba(0,0,0,0.25)] backdrop-blur-md sm:rounded-[24px] sm:p-7"
               >
-                <h2 className="break-words text-2xl leading-tight text-text-primary md:text-3xl">{section.title}</h2>
+                <h2 className="break-words font-sans text-lg font-bold tracking-tight text-white sm:text-xl md:text-2xl">
+                  {section.title}
+                </h2>
 
                 {section.paragraphs?.length ? (
-                  <div className="mt-5 space-y-4">
+                  <div className="mt-4 space-y-3 sm:space-y-3.5">
                     {section.paragraphs.map((paragraph) => (
-                      <p key={paragraph} className="text-sm leading-8 text-muted md:text-base">
+                      <p
+                        key={paragraph}
+                        className="break-words font-sans text-xs leading-relaxed text-muted sm:text-sm sm:leading-7"
+                      >
                         {paragraph}
                       </p>
                     ))}
@@ -171,10 +209,14 @@ export function LegalPage({
                 ) : null}
 
                 {section.bullets?.length ? (
-                  <ul className="mt-5 space-y-3 text-sm leading-8 text-muted md:text-base">
+                  <ul className="mt-4 space-y-2.5">
                     {section.bullets.map((bullet) => (
-                      <li key={bullet} className="break-words rounded-[20px] border border-white/8 bg-white/[0.03] px-4 py-3">
-                        {bullet}
+                      <li
+                        key={bullet}
+                        className="flex items-start gap-3 rounded-xl border border-white/8 bg-white/[0.025] p-3.5 font-sans text-xs leading-relaxed text-muted sm:rounded-2xl sm:p-4 sm:text-sm sm:leading-6"
+                      >
+                        <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#89AACC]" aria-hidden="true" />
+                        <span className="min-w-0 break-words">{bullet}</span>
                       </li>
                     ))}
                   </ul>
@@ -182,31 +224,43 @@ export function LegalPage({
               </article>
             ))}
 
-            <div className="rounded-[26px] border border-[#89AACC]/20 bg-[radial-gradient(circle_at_top,rgba(137,170,204,0.12),transparent_42%),rgba(5,7,13,0.92)] p-5 shadow-[0_24px_72px_rgba(0,0,0,0.24)] sm:rounded-[30px] sm:p-6 md:p-8">
-              <p className="text-xs uppercase tracking-[0.3em] text-[#89AACC]">Questions</p>
-              <h2 className="mt-4 text-2xl text-text-primary md:text-3xl">{contactCardTitle}</h2>
-              <p className="mt-4 text-sm leading-8 text-muted md:text-base">{contactCardDescription}</p>
-              <div className="mt-6 flex flex-wrap gap-3">
+            {/* Inquiries / Questions Card */}
+            <div className="rounded-2xl border border-[#89AACC]/25 bg-[radial-gradient(circle_at_top,rgba(137,170,204,0.1),transparent_50%),rgba(7,10,18,0.95)] p-5 shadow-[0_20px_50px_rgba(0,0,0,0.3)] backdrop-blur-md sm:rounded-[24px] sm:p-7">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#89AACC]/30 bg-[#89AACC]/10 px-3 py-1 font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-[#89AACC]">
+                <Mail className="h-3.5 w-3.5" />
+                <span>Contact & Questions</span>
+              </div>
+
+              <h2 className="mt-4 font-sans text-xl font-bold tracking-tight text-white sm:text-2xl">
+                {contactCardTitle}
+              </h2>
+
+              <p className="mt-3 font-sans text-xs leading-relaxed text-muted sm:text-sm sm:leading-6">
+                {contactCardDescription}
+              </p>
+
+              <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
                 <Link
                   href="/#contact"
-                  className="rounded-full border border-white/10 bg-white/[0.04] px-5 py-3 text-sm text-text-primary transition hover:border-[#89AACC]/35 hover:bg-[#89AACC]/10"
+                  className="inline-flex items-center justify-center rounded-full border border-[#89AACC]/40 bg-[#89AACC]/15 px-5 py-2.5 font-sans text-xs font-semibold text-text-primary transition hover:border-[#89AACC]/60 hover:bg-[#89AACC]/25 sm:text-sm"
                 >
                   Open contact section
                 </Link>
                 <Link
                   href="/"
-                  className="rounded-full border border-white/10 px-5 py-3 text-sm text-muted transition hover:border-white/20 hover:text-text-primary"
+                  className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/[0.03] px-5 py-2.5 font-sans text-xs font-medium text-muted transition hover:border-white/20 hover:text-text-primary sm:text-sm"
                 >
                   Back to homepage
                 </Link>
               </div>
             </div>
-          </div>
-        </section>
+          </main>
+        </div>
 
-        <footer className="mt-8 flex flex-col gap-4 border-t border-white/10 pt-6 text-sm leading-6 text-muted md:mt-10 md:flex-row md:items-center md:justify-between">
-          <p>&copy; 2026 Shreyas J. All rights reserved.</p>
-          <div className="flex flex-wrap gap-4">
+        {/* Footer */}
+        <footer className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 font-sans text-xs text-muted sm:mt-10 sm:flex-row sm:text-sm">
+          <p>&copy; {new Date().getFullYear()} Shreyas J. All rights reserved.</p>
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
             <Link href="/" className="transition hover:text-text-primary">
               Home
             </Link>
@@ -214,11 +268,11 @@ export function LegalPage({
               Privacy Policy
             </Link>
             <Link href="/terms" className="transition hover:text-text-primary">
-              Terms & Conditions
+              Terms of Use
             </Link>
           </div>
         </footer>
       </div>
-    </main>
+    </div>
   );
 }

@@ -7,7 +7,7 @@ import {
   AlertCircle,
   ArrowRight,
   ArrowUpRight,
-  CheckCircle2,
+  Check,
   Clock3,
   ExternalLink,
   Loader2,
@@ -19,6 +19,8 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { FaGithub, FaLinkedin, FaYoutube, FaXTwitter } from "react-icons/fa6";
+import type { IconType } from "react-icons";
 
 import { HlsVideo } from "@/components/hls-video";
 import { SiteLogo } from "@/components/site-logo";
@@ -65,14 +67,72 @@ type ContactStatus =
   | { type: "success"; message: string }
   | { type: "error"; message: string };
 
-const socialIconMap = (label: string) => {
+const getSocialConfig = (label: string): {
+  Icon: IconType;
+  color: string;
+  hoverBorder: string;
+  hoverBg: string;
+  hoverText: string;
+} => {
   const value = label.toLowerCase();
 
-  if (value.includes("form") || value.includes("mail")) {
-    return Mail;
+  if (value.includes("github")) {
+    return {
+      Icon: FaGithub,
+      color: "#F8FAFC",
+      hoverBorder: "hover:border-white/40",
+      hoverBg: "hover:bg-white/10",
+      hoverText: "hover:text-white",
+    };
   }
 
-  return ExternalLink;
+  if (value.includes("youtube")) {
+    return {
+      Icon: FaYoutube,
+      color: "#FF0000",
+      hoverBorder: "hover:border-red-500/50",
+      hoverBg: "hover:bg-red-500/10",
+      hoverText: "hover:text-red-300",
+    };
+  }
+
+  if (value.includes("linkedin")) {
+    return {
+      Icon: FaLinkedin,
+      color: "#0A66C2",
+      hoverBorder: "hover:border-[#0A66C2]/60",
+      hoverBg: "hover:bg-[#0A66C2]/15",
+      hoverText: "hover:text-[#60a5fa]",
+    };
+  }
+
+  if (value.includes("twitter") || value.includes("x")) {
+    return {
+      Icon: FaXTwitter,
+      color: "#F8FAFC",
+      hoverBorder: "hover:border-white/40",
+      hoverBg: "hover:bg-white/10",
+      hoverText: "hover:text-white",
+    };
+  }
+
+  if (value.includes("form") || value.includes("mail") || value.includes("email")) {
+    return {
+      Icon: Mail as unknown as IconType,
+      color: "#89AACC",
+      hoverBorder: "hover:border-[#89AACC]/50",
+      hoverBg: "hover:bg-[#89AACC]/10",
+      hoverText: "hover:text-[#89AACC]",
+    };
+  }
+
+  return {
+    Icon: ExternalLink as unknown as IconType,
+    color: "#89AACC",
+    hoverBorder: "hover:border-[#89AACC]/50",
+    hoverBg: "hover:bg-[#89AACC]/10",
+    hoverText: "hover:text-text-primary",
+  };
 };
 
 const formatMetricLabel = (value: string) => value.replace(/_/g, " ").toUpperCase();
@@ -796,7 +856,7 @@ export function PortfolioShell({ content, latestPosts, skillCategories, isInitia
                   href={content.contact.socialLinks.find((link) => link.label === "GitHub")?.url}
                   target="_blank"
                   rel="noreferrer"
-                  className="hidden md:inline-flex"
+                  className="inline-flex self-start md:self-auto"
                   size="sm"
                   borderWidth={2}
                   metalConfig={defaultMetalConfig}
@@ -884,18 +944,31 @@ export function PortfolioShell({ content, latestPosts, skillCategories, isInitia
               action={
                 <LiquidMetalLink
                   href="/blogs"
-                  className="hidden md:inline-flex"
+                  className="inline-flex self-start md:self-auto"
                   size="sm"
                   borderWidth={2}
                   metalConfig={defaultMetalConfig}
                   icon={<ArrowRight className="h-4 w-4" />}
                 >
-                  View all
+                  View all blogs
                 </LiquidMetalLink>
               }
             />
 
             <BlogCarousel posts={latestPosts} />
+
+            <div className="mt-8 flex justify-center md:hidden">
+              <LiquidMetalLink
+                href="/blogs"
+                className="w-full justify-center sm:w-auto"
+                size="sm"
+                borderWidth={2}
+                metalConfig={defaultMetalConfig}
+                icon={<ArrowRight className="h-4 w-4" />}
+              >
+                View all blogs
+              </LiquidMetalLink>
+            </div>
           </div>
         </section>
 
@@ -1104,7 +1177,6 @@ export function PortfolioShell({ content, latestPosts, skillCategories, isInitia
                 <p className="mt-5 max-w-lg text-sm leading-7 text-muted md:text-base">
                   {content.contact.description}
                 </p>
-
                 <div className="mt-8 flex flex-wrap gap-4">
                   <LiquidMetalLink
                     href={content.contact.socialLinks.find((link) => link.label === "LinkedIn")?.url}
@@ -1113,7 +1185,7 @@ export function PortfolioShell({ content, latestPosts, skillCategories, isInitia
                     size="md"
                     borderWidth={2}
                     metalConfig={accentMetalConfig}
-                    icon={<ArrowUpRight className="h-4 w-4" />}
+                    icon={<FaLinkedin className="h-4 w-4 text-[#0A66C2]" />}
                   >
                     Connect on LinkedIn
                   </LiquidMetalLink>
@@ -1148,24 +1220,38 @@ export function PortfolioShell({ content, latestPosts, skillCategories, isInitia
                         transition={{ type: "spring", stiffness: 200, damping: 20 }}
                         className="mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-[#89AACC]/10 border border-[#89AACC]/30 shadow-[0_0_60px_rgba(137,170,204,0.3)]"
                       >
-                        <CheckCircle2 className="h-12 w-12 text-[#89AACC]" />
+                        <Check className="h-10 w-10 text-[#89AACC]" />
                       </motion.div>
-                      <h3 className="text-2xl text-text-primary text-center px-4">Message sent successfully</h3>
-                      <p className="mt-2 text-muted text-center px-6 max-w-sm">
+                      <motion.h3
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.1 }}
+                        className="text-2xl font-semibold text-white md:text-3xl text-center px-4"
+                      >
+                        Message Sent!
+                      </motion.h3>
+                      <motion.p
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.2 }}
+                        className="mt-2 text-center text-sm text-muted max-w-sm px-4"
+                      >
                         {contactStatus.message}
-                      </p>
-                      <button
-                        type="button"
+                      </motion.p>
+                      <motion.button
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.3 }}
                         onClick={() => setContactStatus({ type: "idle", message: "" })}
-                        className="mt-8 rounded-full border border-white/10 bg-white/5 py-2 px-6 text-sm text-text-primary transition hover:bg-white/10"
+                        className="mt-6 rounded-full border border-white/10 bg-white/5 px-6 py-2 text-xs uppercase tracking-widest text-white transition hover:bg-white/10"
                       >
                         Send another
-                      </button>
+                      </motion.button>
                     </motion.div>
                   )}
                 </AnimatePresence>
 
-                <div className={`grid gap-4 transition-opacity duration-300 ${contactStatus.type === "success" ? "opacity-0" : "opacity-100"}`}>
+                <div className={`grid gap-5 transition-opacity duration-300 ${contactStatus.type === "success" ? "opacity-0" : "opacity-100"}`}>
                   <div
                     className="absolute left-[-9999px] top-auto h-px w-px overflow-hidden opacity-0"
                     aria-hidden="true"
@@ -1191,12 +1277,11 @@ export function PortfolioShell({ content, latestPosts, skillCategories, isInitia
                           {error && <span className="text-rose-400 text-xs animate-in fade-in slide-in-from-left-1">{error}</span>}
                         </span>
                         <textarea
+                          rows={field.rows ?? 4}
                           name={field.name}
-                          rows={field.rows ?? 5}
                           placeholder={field.placeholder}
-                          maxLength={4000}
                           onChange={() => setFormErrors((prev) => ({ ...prev, [field.name]: "" }))}
-                          className={`min-h-[140px] rounded-[24px] border bg-black/35 px-5 py-4 text-sm text-text-primary outline-hidden transition ${
+                          className={`rounded-[22px] border bg-black/35 p-4 text-sm text-text-primary outline-hidden transition resize-none ${
                             error ? "border-rose-500/50 focus:border-rose-400" : "border-white/10 focus:border-[#89AACC]"
                           }`}
                         />
@@ -1257,9 +1342,10 @@ export function PortfolioShell({ content, latestPosts, skillCategories, isInitia
             </div>
 
             <div className="mt-12 flex flex-col gap-6 border-t border-white/10 pt-6 md:flex-row md:items-center md:justify-between">
-              <div className="flex flex-wrap items-center gap-4">
+              <div className="flex flex-wrap items-center gap-3 sm:gap-4">
                 {content.contact.socialLinks.map((link: SocialLink, i: number) => {
-                  const Icon = socialIconMap(link.label);
+                  const config = getSocialConfig(link.label);
+                  const Icon = config.Icon;
 
                   return (
                     <motion.a
@@ -1267,14 +1353,15 @@ export function PortfolioShell({ content, latestPosts, skillCategories, isInitia
                       href={link.url}
                       target="_blank"
                       rel="noreferrer"
-                      className="group inline-flex items-center gap-2 rounded-full border border-white/5 bg-white/5 px-4 py-2 text-sm text-muted backdrop-blur-md transition-all duration-300 hover:border-white/20 hover:bg-white/10 hover:text-white"
+                      aria-label={`Visit ${link.label}`}
+                      className={`group inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm text-text-secondary backdrop-blur-md transition-all duration-300 ${config.hoverBorder} ${config.hoverBg} ${config.hoverText}`}
                       animate={{ y: [0, -4, 0] }}
                       transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: i * 0.3 }}
                       whileHover={{ scale: 1.05, y: -2 }}
                       whileTap={{ scale: 0.95 }}
                     >
-                      <Icon className="h-[18px] w-[18px] transition-transform duration-300 group-hover:scale-110" />
-                      {link.label}
+                      <Icon className="h-4 w-4 transition-transform duration-300 group-hover:scale-115" style={{ color: config.color }} />
+                      <span className="font-medium">{link.label}</span>
                     </motion.a>
                   );
                 })}
